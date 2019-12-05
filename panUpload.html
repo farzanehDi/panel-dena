@@ -1,0 +1,207 @@
+
+<!----------------body---------------->
+<div class="load-content">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div>
+<div class="no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title d-flex align-items-center"><i class="fa fa-upload" aria-hidden="true"></i>بارگزاری دستی اطلاعات کارت</h1>
+        <div class="panelBox animated fadeIn">
+            <h2 class="panelBox-title">با کلیک بر روی تصویر زیر فایل اکسل خود را انتخاب نمایید:</h2>
+            <div class=" panelBox-body">
+
+
+                    <!--<div class="row" style="width: 50%;margin: auto">-->
+                        <div class="col-12 d-flex flex-column">
+                            <div class="formContainer col-lg-4 col-12 mr-auto ml-auto">
+
+                                <label class="btn btn-file  mt-4 text-center" >
+
+                                    <div id="upload">
+                                        <i class="fas fa-upload" ></i>
+                                        <p class="mt-3 text-muted">فایل خود را انتخاب نمایید</p>
+                                    </div>
+
+                                    <div class="d-none uploaded" >
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-check" >&nbsp;&nbsp;</i>
+                                            <i class="fas fa-file-excel" ></i>
+                                        </div>
+                                        <p class="mt-4 text-secondary" id="fileName"></p>
+
+                                    </div>&nbsp;
+
+                                    <input type='file' class="d-none" id="uploadPan"  onchange="onDrop()"
+                                           accept="application/vnd.ms-excel , application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                                </label>
+                                <br/>
+                                <button class="uploaded d-none btn btn-warning pr-5 pl-5 m-auto " id="removeFile" onclick="removeFile()">حذف فایل</button>
+
+                                <!--<input id="uploadPan" name="uploadPan" class="file" type="file" style="margin: auto;" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" >-->
+
+                            </div>
+
+                            <div class="text-center d-flex justify-content-center mt-5">
+                                <button id="sendPan" class="col-lg-2 col-md-4 col-12 col-sm-8 btn btn-danger d-flex align-items-center
+                             justify-content-center mr-auto ml-auto">
+                                    <img id='loading' src='images/spinner.gif' class="d-none" >&nbsp;
+                                    <span>ارسال اطلاعات</span>
+
+                                </button>
+                            </div>
+
+                        </div>
+                    <!--</div>-->
+
+
+
+
+                <!--<div class="alert alert-danger text-right alert-box" style="display: none;">-->
+
+                    <!--<div class="row">-->
+                        <!--<div class="col-sm-12">-->
+                            <!--<p>کارت های زیر با موفقیت ثبت نشده اند :</p>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-sm-6">-->
+                            <!--<table class="table error-tables" id="cards-errList" style="margin-top: 10px;">-->
+                                <!--<thead>-->
+                                    <!--<tr>-->
+                                        <!--<th>شماره کارت</th>-->
+                                    <!--</tr>-->
+                                <!--</thead>-->
+
+                                <!--<tbody class="table-body">-->
+                                    <!--&nbsp;-->
+                                <!--</tbody>-->
+                            <!--</table>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
+                <!--<div class="col-sm-12">-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-sm-4">-->
+                            <!--<div class="form-group">-->
+                                <!--<span class="input-icon icon-right">-->
+                                    <!--<input type="email" class="form-control noEmpty1" id="email" placeholder="ایمیل">-->
+                                    <!--<i class="fa fa-envelope circular"></i>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="col-sm-12 text-right u-pr-z">-->
+                    <!--<button class="btn hoverBtn" type="button" id="addCardBtn">-->
+                        <!--<img src="images/plus.png" alt="add" class="plus-img">-->
+                    <!--</button>-->
+                    <!--<span>افزودن کارت</span>-->
+                <!--</div>-->
+
+                <!--<div class="row" id="cards-box">-->
+                    <!--<div class="card-item">-->
+                        <!--<div class="col-sm-12 text-right">-->
+                            <!--<button class="btn removeCardBtn hoverBtn" type="button" disabled>-->
+                                <!--<img src="images/negative.png" alt="add" class="minus-img">-->
+                            <!--</button>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-sm-12">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-sm-4">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<span class="input-icon icon-right">-->
+                                            <!--<input type="text" class="form-control noEmpty2 formatNumber panNum"-->
+                                                <!--placeholder="Pan">-->
+                                            <!--<i class="fa fa-list-ol circular"></i>-->
+                                        <!--</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="col-sm-4">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<span class="input-icon icon-right">-->
+                                            <!--<input type="text" class="form-control noEmpty3 track1"-->
+                                                <!--placeholder="Track1">-->
+                                            <!--<i class="fa fa-list-ol circular"></i>-->
+                                        <!--</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="col-sm-4">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<span class="input-icon icon-right">-->
+                                            <!--<input type="text" class="form-control noEmpty4 track2"-->
+                                                <!--placeholder="Track2">-->
+                                            <!--<i class="fa fa-list-ol circular"></i>-->
+                                        <!--</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-sm-12">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-sm-4">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<span class="input-icon icon-right">-->
+                                            <!--<input type="text" class="form-control noEmpty5 formatNumber cvv2"-->
+                                                <!--placeholder="Cvv2">-->
+                                            <!--<i class="fa fa-list-ol circular"></i>-->
+                                        <!--</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="col-sm-4">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<span class="input-icon icon-right">-->
+                                            <!--<input type="text" class="form-control noEmpty6 formatNumber pin"-->
+                                                <!--placeholder="Pin">-->
+                                            <!--<i class="fa fa-list-ol circular"></i>-->
+                                        <!--</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="col-sm-4">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-sm-4">-->
+                                            <!--تاریخ انقضا :-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-sm-4 form-group">-->
+                                            <!--<input class="form-control noEmpty7 formatNumber month" type="text"-->
+                                                <!--autocomplete="off" placeholder="ماه" minlength="2" maxlength="2">-->
+                                        <!--</div>-->
+
+                                        <!--<div class="col-sm-4 form-group">-->
+                                            <!--<input class="form-control noEmpty8 formatNumber year" type="text"-->
+                                                <!--autocomplete="off" placeholder="سال" minlength="2" maxlength="2">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
+
+            </div>
+
+            <!--<div class="row">-->
+                <!--<div class="col-sm-12 text-right">-->
+                    <!--<button class="btn btn-success" id="submitCards">آپلود</button>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        </div>
+    </div>
+</div>
+
+<!------upload-->
+<!-- <link href="plugin/bootstrap-fileinput-master/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<script src="plugin/bootstrap-fileinput-master/js/fileinput.js" type="text/javascript"></script> -->
+<script src="scripts/panUpload.js" type="text/javascript"></script>
+<!------end upload-->

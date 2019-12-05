@@ -1,0 +1,416 @@
+<!----------------loader-------------->
+<!-- <div class="load-content">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div> -->
+<!----------------body---------------->
+<div class="no_margin">
+  <div class="col-md-12">
+    <h1 class="page-title"><i class="fa fa-users" aria-hidden="true"></i> مدیریت کاربران حقوقی</h1>
+    <div class="panelBox animated fadeIn">
+      <h2 class="panelBox-title">ایجاد کاربر جدید</h2>
+
+      <div class=" panelBox-body">
+
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" role="tab" href="#createUser">ایجاد کاربر</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" role="tab" href="#userList" id="userListBtn">لیست کاربران</a>
+          </li>
+        </ul>
+
+        <div class="tab-content u-mt-big">
+
+          <div id="createUser" class="tab-pane fade in active show">
+
+            <div class="col-sm-12 mt-5">
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="text" id="company-name" class="form-control noEmpty1" autocomplete="off"
+                        placeholder="نام شرکت">
+                      <i class="fa fa-building circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="text" id="manager-name" class="form-control noEmpty2" autocomplete="off"
+                        placeholder="نام مدیر عامل">
+                      <i class="fa fa-user circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="email" id="company-email" class="form-control noEmpty3" autocomplete="off"
+                        placeholder=" ایمیل شرکت">
+                      <i class="fa fa-envelope circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="number" id="company-phone" class="form-control noEmpty4" autocomplete="off"
+                        placeholder="تلفن شرکت">
+                      <i class="fa fa-phone circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="text" id="company-post" class="form-control noEmpty5" autocomplete="off"
+                        placeholder="کد پستی">
+                      <i class="fa fa-book circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="number" id="company-code" class="form-control noEmpty6" autocomplete="off"
+                        placeholder="کد شرکت">
+                      <i class="fa fa-book circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="text" id="company-address" class="form-control noEmpty7" autocomplete="off"
+                        placeholder="آدرس">
+                      <i class="fa fa-map circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="text" id="company-type" class="form-control noEmpty8" autocomplete="off"
+                        placeholder="نوع شرکت">
+                      <i class="fa fa-building circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="password" class="form-control noEmpty9" id="password" placeholder="رمز عبور">
+                      <i class="fa fa-lock circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="input-icon icon-right">
+                      <input type="password" class="form-control noEmpty10" id="ConfirmPassword"
+                        placeholder="تکرار رمزعبور">
+                      <i class="fa fa-lock circular"></i>
+                    </span>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-sm-6 br-box u-mb-md">
+              <h2 class="accessTitle" id="access">سطح دسترسی</h2>
+              <div class="row accessList">
+                <div class="col-lg-4 col-sm-6 col-xs-6">
+                  <label class="containerCheckbox">User
+                    <input class="chAccess" type="radio" name="role" id="c-OA">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="col-lg-4 col-sm-6 col-xs-6">
+                  <label class="containerCheckbox">Editor
+                    <input class="chAccess" type="radio" name="role" id="c-PA">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="col-lg-4 col-sm-6 col-xs-6">
+                  <label class="containerCheckbox">Designer
+                    <input class="chAccess" type="radio" name="role" id="c-MA">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="col-lg-4 col-sm-6 col-xs-6">
+                  <label class="containerCheckbox">Owner
+                    <input class="chAccess" type="radio" name="role" id="c-APA">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="col-lg-4 col-sm-6 col-xs-6">
+                  <label class="containerCheckbox">Admin
+                    <input class="chAccess" type="radio" name="role" id="c-SA">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 text-right">
+              <input id="addCompany" type="submit" value="افزودن کاربر" class="btn btn-success" autocomplete="off">
+            </div>
+          </div>
+
+
+          <div id="userList" class="tab-pane fade">
+
+            <div class="custom-datatable">
+              <div class="table-responsive custom-table">
+                <table style="direction: rtl" class="table table-striped table-condensed table-hover table-bordered"
+                  id="userInformation" width="100%">
+                  <thead>
+                    <tr>
+                      <th>نام کاربری</th>
+                      <th>سطح دسترسی</th>
+                      <th class="nosort">ویرایش</th>
+                      <th class="nosort">حذف</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<!---------------modal------------------>
+<div class="modal fade modal-large modal-edit" id="resetPassModal" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <span>ویرایش کاربر حقوقی</span>
+      </div>
+
+      <div class="modal-body" id="print">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>نام شرکت</label>
+              <span class="input-icon icon-right">
+                <input type="text" id="Ecompany-name" class="form-control" autocomplete="off" placeholder="نام شرکت">
+                <i class="fa fa-building circular"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">نام مدیر عامل</label>
+              <span class="input-icon icon-right">
+                <input type="text" id="Emanager-name" class="form-control" autocomplete="off"
+                  placeholder="نام مدیر عامل ">
+                <i class="fa fa-user circular"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">کد پستی</label>
+              <span class="input-icon icon-right">
+                <input type="text" id="Ecompany-post" class="form-control" autocomplete="off" placeholder="کد پستی">
+                <i class="fa fa-book circular"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- <div class="col-md-6">
+            <div class="form-group">
+              <label for="">ایمیل</label>
+              <span class="input-icon icon-right">
+                <input type="email" id="Ecompany-email" class="form-control" autocomplete="off" placeholder="ایمیل">
+                <i class="fa fa-envelope circular"></i>
+              </span>
+            </div>
+          </div> -->
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">تلفن</label>
+              <span class="input-icon icon-right">
+                <input type="number" id="Ecompany-phone" class="form-control" autocomplete="off" placeholder="تلفن">
+                <i class="fa fa-phone circular"></i>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">کد شرکت</label>
+              <span class="input-icon icon-right">
+                <input type="text" id="Ecompany-code" class="form-control" autocomplete="off" placeholder="کد شرکت">
+                <i class="fa fa-book circular"></i>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">نوع شرکت</label>
+              <span class="input-icon icon-right">
+                <input type="text" id="Ecompany-type" class="form-control" autocomplete="off" placeholder="نوع شرکت">
+                <i class="fa fa-building circular"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">آدرس</label>
+              <span class="input-icon icon-right">
+                <input type="text" id="Ecompany-address" class="form-control" autocomplete="off" placeholder="آدرس">
+                <i class="fa fa-map circular"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">شهر</label>
+              <span class="input-icon icon-right">
+                <input type="text" id="city" class="form-control" autocomplete="off" placeholder="شهر">
+                <i class="fa fa-map circular"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">استان</label>
+              <span class="input-icon icon-right">
+                <input type="text" id="province" class="form-control" autocomplete="off" placeholder="استان">
+                <i class="fa fa-map circular"></i>
+              </span>
+            </div>
+          </div>
+
+
+          <!-- <div class="col-md-6">
+            <div class="form-group">
+              <label for="">رمزعبور</label>
+              <span class="input-icon icon-right">
+                <input type="password" class="form-control" id="Epassword" placeholder="رمز عبور">
+                <i class="fa fa-lock circular"></i>
+              </span>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+
+            <div class="form-group">
+              <label for="">تکرار رمزعبور</label>
+              <span class="input-icon icon-right">
+                <input type="password" class="form-control" id="EConfirmPassword" placeholder="تکرار رمزعبور">
+                <i class="fa fa-lock circular"></i>
+              </span>
+            </div>
+          </div> -->
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="status">status</label>
+              <select id="status">
+                <option value=""></option>
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-10 col-md-offset-1 br-box">
+            <p id="editaccess">سطح دسترسی:</p><br />
+            <div class="col-md-6 col-xs-12">
+              <label class="containerCheckbox">User
+                <input class="chedit" type="radio" name="role" id="editOA">
+                <span class="checkmark"></span>
+              </label>
+
+            </div>
+
+            <div class=" col-md-6 col-xs-12">
+              <label class="containerCheckbox">Editor
+                <input class="chedit" type="radio" name="role" id="editPA">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class=" col-md-6 col-xs-12">
+              <label class="containerCheckbox">Designer
+                <input class="chedit" type="radio" name="role" id="editMA">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class=" col-md-6 col-xs-12">
+              <label class="containerCheckbox">Owner
+                <input class="chedit" type="radio" name="role" id="editAPA">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class=" col-md-6 col-xs-12">
+              <label class="containerCheckbox">Admin
+                <input class="chedit" type="radio" name="role" id="editSA">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button id="exit-modal1" name="exit-modal" type="button" class="btn btn-danger" data-dismiss="modal"
+          style="float: left">بازگشت
+        </button>
+
+        <button id="changePass" type="button" style=" float: right" class="btn btn-info print-link no-print">ویرایش
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------script---------------->
+<script src="scripts/addCompanyUser.js" type="text/javascript"></script>

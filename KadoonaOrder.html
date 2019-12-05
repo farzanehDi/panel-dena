@@ -1,0 +1,198 @@
+<!----------------loader-------------->
+<div class="load-content">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div>
+
+<!----------------body---------------->
+<div class=" no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title"><i class="fa fa-file-excel-o" aria-hidden="true"></i>اکسل سایت</h1>
+        <div class="panelBox animated fadeIn">
+            <h2 class="panelBox-title">دریافت اکسل سایت</h2>
+            <div class=" panelBox-body">
+                <div class="row col-12">
+                    <div class="col-sm-4 col-12">
+                        <div class="form-group">
+                            از تاریخ :
+                            <span class="input-icon icon-right">
+                                <input class="form-control noEmpty2" type="text" id="Date1" autocomplete="off"
+                                    placeholder="از تاریخ" tabindex="6">
+                                <i class="fa fa-calendar circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            از ساعت :
+                            <span class="input-icon icon-right">
+                                <input type="text" id="time1" class="time1 form-control noEmpty2 formatNumber"
+                                    autocomplete="off" tabindex="6" value="00">
+                                <i class="fa fa-clock-o circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            از دقیقه :
+                            <span class="input-icon icon-right">
+                                <input type="text" id="minute1" class="time2 form-control noEmpty2 formatNumber"
+                                    autocomplete="off" tabindex="5" value="00">
+                                <i class="fa fa-clock-o circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            از ثانیه :
+                            <span class="input-icon icon-right">
+                                <input type="text" id="sc1" class="time2 form-control noEmpty2 formatNumber"
+                                    autocomplete="off" tabindex="5" value="01">
+                                <i class="fa fa-clock-o circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            تا تاریخ :
+                            <span class="input-icon icon-right">
+                                <input class="form-control noEmpty2 " type="text" id="Date2" autocomplete="off"
+                                    placeholder="تا تاریخ" tabindex="6">
+                                <i class="fa fa-calendar circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            تا ساعت :
+                            <span class="input-icon icon-right">
+                                <input type="text" id="time2" class="time3 form-control noEmpty2 formatNumber"
+                                    autocomplete="off" tabindex="6" value="23">
+                                <i class="fa fa-clock-o circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            تا دقیقه :
+                            <span class="input-icon icon-right">
+                                <input type="text" id="minute2" class="time4 form-control noEmpty2 formatNumber"
+                                    autocomplete="off" tabindex="5" value="59">
+                                <i class="fa fa-clock-o circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            تا ثانیه :
+                            <span class="input-icon icon-right">
+                                <input type="text" id="sc2" class="time4 form-control noEmpty2 formatNumber"
+                                    autocomplete="off" tabindex="5" value="59">
+                                <i class="fa fa-clock-o circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            شناسه سفارش
+                            <span class="input-icon icon-right">
+                                <input type="text" id="ordId" class="form-control" autocomplete="off">
+                                <i class="fa fa-hashtag circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            کد ملی کاربر
+                            <span class="input-icon icon-right">
+                                <input type="text" id="nationalCode" class="form-control" autocomplete="off">
+                                <i class="fa fa-hashtag circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            شماره کارت
+                            <span class="input-icon icon-right">
+                                <input type="text" id="pan" class="form-control" autocomplete="off">
+                                <i class="fa fa-hashtag circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            شناسه کارت 10 رقمی
+                            <span class="input-icon icon-right">
+                                <input type="text" id="rrn" class="form-control" autocomplete="off">
+                                <i class="fa fa-hashtag circular"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group text-right u-mb-md">
+                            <label class="u-ml-sm"> نوع کارت</label>
+
+                            <label>
+                                <input type="radio" class="mx-2" value="default" name="type">
+                                default</label>
+
+                            <label>
+                                <input type="radio" class="mx-2" value="custom" name="type">
+                                custom</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group text-right u-mb-md">
+                            <label class="u-ml-sm"> وضعیت سفارش</label>
+
+                            <label>
+                                <input type="radio" class="mx-2" value="printing" name="state">
+                                printing</label>
+
+                            <label>
+                                <input type="radio" class="mx-2" value="done" name="state">
+                                done</label>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12 text-right">
+                        <button class="btn btn-primary" id="search">جستجو</button>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-datatable">
+                <div class="table-responsive custom-table">
+                    <table class="table table-striped table-condensed table-hover table-bordered" id="finalList">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 50px;">INDEX</th>
+                                <th>ORDER ID</th>
+                                <th style="min-width: 150px">PAN</th>
+                                <th>PAN1</th>
+                                <th>PAN2</th>
+                                <th>PAN3</th>
+                                <th>PAN4</th>
+                                <th>EXPIRATION</th>
+                                <th>CVV2</th>
+                                <th>TRACK1</th>
+                                <th style="min-width: 300px">TRACK2</th>
+                                <th>PRODUCT_CODE</th>
+                                <th>TEXT</th>
+                                <th>QR_CODE</th>
+                                <th>PASS</th>
+                                <!--<th style="font-size:14px">FACTOR</th>-->
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!----------------script---------------->
+<script src="scripts/KadoonaOrder.js" type="text/javascript"></script>

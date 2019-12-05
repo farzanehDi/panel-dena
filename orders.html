@@ -1,0 +1,58 @@
+<!----------------loader-------------->
+<div class="load-content">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw" ></i>
+</div>
+<!----------------body---------------->
+<div class="no_margin">
+  <div class="col-md-12">
+    <h1 class="page-title"><i class="fas fa-shopping-cart"></i> سفارش ها</h1>
+    <div class="panelBox animated fadeIn">
+
+      <div class=" panelBox-body pt-0">
+
+        <div class="d-flex flex-column mt-4">
+          <label class="col-12 control-label no-padding-right text-right mb-2">نمایش بر اساس  :</label>
+          <div class="col-lg-3 col-sm-8 col-12">
+            <select id="orderType" class="form-control">
+              <option value="">همه</option>
+              <option value="pending">در انتظار پرداخت</option>
+              <option value="done">انجام شده</option>
+              <option value="cancel">لغو شده</option>
+              <option value="processing">تایید شده</option>
+              <option value="failed">خطا در پرداخت</option>
+              <option value="cancel">لغو توسط کاربر</option>
+              <option value="pay">پرداخت شده</option>
+              <option value="reject">رد شده</option>
+              <option value="waiting">در انتظار چاپ</option>
+              <option value="sending">در حال ارسال</option>
+              <option value="error">خطا در ارتباط</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="custom-datatable">
+          <div class="table-responsive custom-table">
+            <table style="direction: rtl" class="table table-striped table-condensed table-hover table-bordered"
+                   id="ordersInformation" width="100%">
+              <thead>
+              <tr>
+                <th>شناسه سفارش</th>
+                <th>مبلغ سفارش</th>
+                <th>وضعیت سفارش</th>
+                <th class="nosort">جزییات</th>
+                <th class="nosort">حذف</th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<!----------------script---------------->
+<script src="scripts/orders.js" type="text/javascript"></script>

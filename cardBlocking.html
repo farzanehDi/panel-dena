@@ -1,0 +1,137 @@
+<!----------------loader-------------->
+<div class="load-content">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div>
+<!----------------body---------------->
+<div class="no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title d-flex align-items-center"><i class="fas fa-lock" aria-hidden="true"></i>مسدودی کارت</h1>
+        <div class="panelBox animated fadeIn">
+
+            <div class=" panelBox-body pt-0">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" role="tab" href="#blockCard"><i class="fas fa-lock">&nbsp;</i>مسدود کردن کارت</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" role="tab" href="#blockedList" id="blockedListTab"><i class="fas fa-list-ul">&nbsp;</i>لیست مسدود شده ها</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div id="blockCard" class="tab-pane fade in active show ">
+
+                        <div class="d-flex align-items-center justify-content-center flex-wrap mt-5">
+                            <div class="d-flex flex-column align-items-center col-lg-5 col-12 formContainer">
+
+                                <div class="form-group col-12 mr-auto ml-auto">
+                                    <p class="mb-2 text-right">شماره پن را وارد نمایید:</p>
+                                    <span class="input-icon icon-right">
+                                  <input type="number" id="panNumber" class="form-control noEmpty" maxlength="16"
+                                         autocomplete="off" placeholder="شماره pan">
+                                    <i class="fas fa-hashtag circular"></i>
+
+                                </span>
+                                </div>
+                                <div class="form-group col-12 mr-auto ml-auto">
+                                    <p class="mb-2 text-right">علت مسدودی را وارد نمایید:</p>
+                                    <span class="input-icon icon-right">
+                                  <input type="text" id="description" class="form-control noEmpty"
+                                         autocomplete="off" placeholder="توضیحات">
+                                    <i class="fas fa-align-right circular"></i>
+
+                                </span>
+                                </div>
+                                <button class="btn btn-danger mt-4" id="blockPan">مسدود کردن کارت</button>
+
+                            </div>
+
+                            <div class="col-lg-3 d-none d-lg-block mt-5 mr-5">
+                                <img src="./images/cardBlock.png" alt="مسدودی کارت" class="img-fluid">
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                    <div id="blockedList" class="tab-pane fade">
+
+                        <div class="custom-datatable">
+                            <div class="table-responsive custom-table">
+                                <table style="direction: rtl" class="table table-striped table-condensed table-hover table-bordered"
+                                       id="blockedListInformation" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th>شماره PAN</th>
+                                        <th class="nosort">توضیحات</th>
+                                        <th class="nosort">رفع مسدودی</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+<!---------------modal------------------>
+<div class="modal fade modal-large modal-edit" id="unblockPanModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><i class="fas fa-unlock-alt">&nbsp;</i>رفع مسدودی</span>
+
+            </div>
+
+            <div class="modal-body d-flex flex-wrap">
+
+                <div class="form-group col-lg-6 col-12 ">
+                    <p class="mb-2 text-right">شماره پن :</p>
+                    <span class="input-icon icon-right">
+                                  <input type="number" id="panNumberModal" class="form-control " disabled >
+                                    <i class="d-flex justify-content-center fas fa-hashtag circular"></i>
+
+                                </span>
+                </div>
+                <div class="form-group col-lg-6 col-12 ">
+                    <p class="mb-2 text-right">علت رفع مسدودی را وارد نمایید:</p>
+                    <span class="input-icon icon-right">
+                                  <input type="text" id="descriptionModal" class="form-control "
+                                         autocomplete="off" placeholder="توضیحات">
+                                    <i class="d-flex justify-content-center fas fa-align-right circular"></i>
+
+                                </span>
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer d-flex align-items-center justify-content-between">
+                <button id="unblockPan" type="button" class="btn btn-info print-link no-print">رفع مسدودی
+                </button>
+
+                <button id="exit-modal1" name="exit-modal" type="button" class="btn btn-danger" data-dismiss="modal"
+                        >بازگشت
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!----------------script---------------->
+<script src="scripts/cardBlocking.js" type="text/javascript"></script>

@@ -1,0 +1,65 @@
+<!----------------body---------------->
+<div class=" no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> سفارش سازمانی</h1>
+        <div class="panelBox animated fadeIn">
+            <h2 class="panelBox-title">ثبت سفارش سازمانی</h2>
+            <div class=" panelBox-body">
+                <div class="col-sm-12 text-right">
+                    <button class="btn hoverBtn" type="button" id="addCardBtn">
+                        <img src="images/plus.png" alt="add" class="plus-img">
+                    </button>
+                </div>
+                <div class="col-sm-12" id="all_orders">
+                    <div class=" orderItem">
+                        <div class="col-sm-4">
+                            <div class="">
+                                <div class="col-sm-2">
+                                    <button class="btn removeCardBtn hoverBtn" type="button" disabled>
+                                        <img src="images/negative.png" alt="add" class="minus-img">
+                                    </button>
+                                </div>
+
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <span class="input-icon icon-right">
+                                            <input type="text" class="form-control noEmpty1 orgName"
+                                                placeholder="نام سازمان" tabindex="1" autocomplete="off">
+                                            <i class="fa fa-sitemap circular"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <input type="text" class="form-control noEmpty2 formatNumber count"
+                                        placeholder="تعداد" tabindex="2">
+                                    <i class="fa fa-list-ol circular"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <input type="text" class="form-control noEmpty4 Pcode" placeholder="کد محصول"
+                                        tabindex="4" autocomplete="off">
+                                    <i class="fa fa-barcode circular"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-right">
+                    <input id="register" type="submit" tabindex="5" value="ثبت سفارش" class="btn btn-success">
+                </div>
+            </div>
+            <div class="row" id="order" style="margin:30px 0"> &nbsp; </div>
+        </div>
+    </div>
+</div>
+
+<!----------------script---------------->
+<script src="scripts/organizeOrderRegistration.js" type="text/javascript"></script>

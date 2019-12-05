@@ -1,0 +1,53 @@
+<!----------------loader-------------->
+<div class="load-content">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div>
+
+<!----------------body---------------->
+<div class=" no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title"><i class="fa fa-user" aria-hidden="true"></i> مدیریت کاربر</h1>
+        <div class="panelBox animated fadeIn">
+            <h2 class="panelBox-title">بلاک کردن شماره</h2>
+            <div class=" panelBox-body">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <span class="input-icon icon-right">
+                            <input id="phoneNumber" class="form-control formatNumber"  type="text" placeholder="شماره تلفن" alt="شماره تلفن">                                    <i class="fa fa-id-card circular"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-right">
+                    <button id="phoneBlock" class="btn btn-info" style="margin: auto; "tabindex="2">بلاک شماره</button>
+                </div>
+            </div>
+
+            <!-------------------------------datatable-------------->
+
+            <div class="container custom-table">
+                <hr/>
+                <h2 class="text-center">لیست شماره های بلاک شده</h2><br/>
+                <div class="custom-datatable">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-condensed table-hover table-bordered"
+                               id="blockPhoneList" width="100%">
+                            <thead>
+                            <tr>
+                                <th>شماره تلفن</th>
+                                <th>زمان بلاک</th>
+                                <th>خروج از بلاک</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------------script---------------->
+<script src="scripts/userManagement.js" type="text/javascript"></script>
+
+
+

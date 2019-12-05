@@ -1,0 +1,35 @@
+<!----------------body---------------->
+<div class=" no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title"><i class="fa fa-envelope-o" aria-hidden="true"></i> ارسال SMS</h1>
+        <div class="panelBox animated fadeIn">
+            <h2 class="panelBox-title">ارسال پیام کوتاه</h2>
+            <div class="d-flex align-items-center flex-wrap mb-4 panelBox-body">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="example">  مثال :   <span dir="ltr">989*********</span></div>
+                        <span class="input-icon icon-right">
+                            <input type="text" id="mobile" class="form-control noEmpty1 formatNumber" placeholder="شماره موبایل" tabindex="1">
+                            <i class="fa fa-mobile circular"></i>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <span class="input-icon icon-right">
+                            <textarea rows="6" id="message" class="form-control noEmpty2" placeholder="متن پیام"  tabindex="2" style="resize: none;"></textarea>
+                            <i class="fa fa-comments-o circular"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-right">
+                    <input id="sendSMS" type="submit" tabindex="3" value="ارسال پیام" class="btn btn-info">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------------script---------------->
+<script src="scripts/sendSMS.js" type="text/javascript"></script>
