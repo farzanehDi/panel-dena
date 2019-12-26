@@ -1,0 +1,321 @@
+<!----------------loader-------------->
+<div class="load-content">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div>
+<!----------------body---------------->
+<div class="no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title d-flex align-items-center"><i class="fas fa-images"></i>بنرها</h1>
+        <div class="panelBox animated fadeIn">
+
+            <div class="pt-0 panelBox-body">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" role="tab" href="#banners"><i class="fas fa-image">&nbsp;</i>بنرها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" role="tab" href="#sliders" id="slidersTab"><i class="fas fa-images">&nbsp;</i>اسلایدرها</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div id="banners" class="tab-pane fade in active show ">
+                        <div class="d-flex justify-content-between flex-wrap">
+                        <!-------charge page-------->
+                        <div class="col-lg-6 col-12 mt-3">
+                            <p>صفحه شارژ</p>
+                            <div class="bannerPage p-3">
+                                <div class="d-flex flex-wrap align-items-center justify-content-sm-between justify-content-center">
+                                    <img src="" class="img-fluid mb-4" id="chargeImg" alt="صفحه شارژ"/>
+
+                                    <div class="form-group mb-3">
+                                          <span class="input-icon icon-right">
+
+                                             <div class="d-flex flex-column align-items-start justify-content-start" id="chargeImgDiv">
+                                                <button class="p-0 mt-1 removeImgSite d-none btn btn-danger"
+                                                        onClick="removeImg('chargeImgDiv')" >
+                                                    &times;
+                                                </button>
+                                                 <button class="updateImgSite d-none btn btn-success pt-1 pb-1 align-items-center justify-content-center"
+                                                         onClick="updateChargePage(this)" >
+                                                        <img src="./images/spinner.gif" class=" d-none loading"  alt="loading">&nbsp;
+                                                        ویرایش تصویر
+                                                 </button>
+
+                                                <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                   <span class="m-0"><i class="fas fa-upload">&nbsp;</i>آپدیت تصویر</span>
+                                                  <input type='file' class="form-control d-none" id="chargeUpdate" onChange="showPreview(this,'chargeImgDiv');"
+                                                         accept="image/*" />
+                                                </label>
+                                             </div>
+
+                                          </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-----guid page------->
+                        <div class="col-lg-6 col-12 mt-3">
+                            <p>صفحه راهنمایی</p>
+                            <div class="bannerPage p-3">
+                                <div class="d-flex flex-wrap align-items-center justify-content-sm-between justify-content-center">
+                                    <img src="" class="img-fluid mb-4" id="guidImg" alt="صفحه راهنما" />
+
+                                    <div class="form-group mb-3">
+                                          <span class="input-icon icon-right">
+
+                                             <div class="d-flex flex-column align-items-start justify-content-start" id="guidImgDiv">
+                                                <button class="p-0 mt-1 removeImgSite d-none btn btn-danger"
+                                                        onClick="removeImg('guidImgDiv')" >
+                                                    &times;
+                                                </button>
+                                                 <button class="updateImgSite d-none btn btn-success pt-1 pb-1 align-items-center justify-content-center"
+                                                         onClick="updateGuidPage(this)" >
+                                                        <img src="./images/spinner.gif" class=" d-none loading"  alt="loading">&nbsp;
+                                                        ویرایش تصویر
+                                                 </button>
+
+                                                <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                   <span class="m-0"><i class="fas fa-upload">&nbsp;</i>آپدیت تصویر</span>
+                                                  <input type='file' class="form-control d-none" id="guidUpdate" onChange="showPreview(this,'guidImgDiv');"
+                                                         accept="image/*" />
+                                                </label>
+                                             </div>
+
+                                          </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-----guid page------->
+                        <div class="col-lg-6 col-12 mt-3">
+                            <p>صفحه قوانین</p>
+                            <div class="bannerPage p-3">
+                                <div class="d-flex flex-wrap align-items-center justify-content-sm-between justify-content-center">
+                                    <img src="" class="img-fluid mb-4" id="termImg" alt="صفحه قوانین" />
+
+                                    <div class="form-group mb-3">
+                                          <span class="input-icon icon-right">
+
+                                             <div class="d-flex flex-column align-items-start justify-content-start" id="termImgDiv">
+                                                <button class="p-0 mt-1 removeImgSite d-none btn btn-danger"
+                                                        onClick="removeImg('termImgDiv')" >
+                                                    &times;
+                                                </button>
+                                                 <button class="updateImgSite d-none btn btn-success pt-1 pb-1 align-items-center justify-content-center"
+                                                         onClick="updateTermPage(this)" >
+                                                        <img src="./images/spinner.gif" class="d-none loading"  alt="loading">&nbsp;
+                                                        ویرایش تصویر
+                                                 </button>
+
+                                                <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                   <span class="m-0"><i class="fas fa-upload">&nbsp;</i>آپدیت تصویر</span>
+                                                  <input type='file' class="form-control d-none" id="termUpdate" onChange="showPreview(this,'termImgDiv');"
+                                                         accept="image/*" />
+                                                </label>
+                                             </div>
+
+                                          </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-----agent page------->
+                        <div class="col-lg-6 col-12 mt-3">
+                            <p>صفحه نمایندگی</p>
+                            <div class="bannerPage p-3">
+                                <div class="d-flex flex-wrap align-items-center justify-content-sm-between justify-content-center">
+                                    <img src="" class="img-fluid mb-4" id="agentImg" alt="صفحه قوانین" />
+
+                                    <div class="form-group mb-3">
+                                          <span class="input-icon icon-right">
+
+                                             <div class="d-flex flex-column align-items-start justify-content-start" id="agentImgDiv">
+                                                <button class="p-0 mt-1 removeImgSite d-none btn btn-danger"
+                                                        onClick="removeImg('agentImgDiv')" >
+                                                    &times;
+                                                </button>
+                                                 <button class="updateImgSite d-none btn btn-success pt-1 pb-1 align-items-center justify-content-center"
+                                                         onClick="updateAgentPage(this)" >
+                                                        <img src="./images/spinner.gif" class="d-none loading"  alt="loading">&nbsp;
+                                                        ویرایش تصویر
+                                                 </button>
+
+                                                <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                   <span class="m-0"><i class="fas fa-upload">&nbsp;</i>آپدیت تصویر</span>
+                                                  <input type='file' class="form-control d-none" id="agentUpdate" onChange="showPreview(this,'agentImgDiv');"
+                                                         accept="image/*" />
+                                                </label>
+                                             </div>
+
+                                          </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-----about page------->
+                        <div class="col-lg-6 col-12 mt-3">
+                            <p>صفحه درباره ما</p>
+                            <div class="bannerPage p-3">
+                                <div class="d-flex flex-wrap align-items-center justify-content-sm-between justify-content-center">
+                                    <img src="" class="img-fluid mb-4" id="aboutImg" alt="صفحه درباره ما" />
+
+                                    <div class="form-group mb-3">
+                                          <span class="input-icon icon-right">
+
+                                             <div class="d-flex flex-column align-items-start justify-content-start" id="aboutImgDiv">
+                                                <button class="p-0 mt-1 removeImgSite d-none btn btn-danger"
+                                                        onClick="removeImg('aboutImgDiv')" >
+                                                    &times;
+                                                </button>
+                                                 <button class="updateImgSite d-none btn btn-success pt-1 pb-1 align-items-center justify-content-center"
+                                                         onClick="updateAboutPage(this)" >
+                                                        <img src="./images/spinner.gif" class="d-none loading"  alt="loading">&nbsp;
+                                                        ویرایش تصویر
+                                                 </button>
+
+                                                <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                   <span class="m-0"><i class="fas fa-upload">&nbsp;</i>آپدیت تصویر</span>
+                                                  <input type='file' class="form-control d-none" id="aboutUpdate" onChange="showPreview(this,'aboutImgDiv');"
+                                                         accept="image/*" />
+                                                </label>
+                                             </div>
+
+                                          </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-------->
+                    </div>
+                    </div>
+
+
+
+                    <div id="sliders" class="tab-pane fade ">
+                        <div class="d-flex flex-column">
+                            <p class="text-danger text-right mt-3">*حداکثر ابعاد عکس برای اسلایدرهای صفحه اصلی: 850 &times;1940 </p>
+                            <!----main page slider------>
+                            <div class="col-12 mt-2">
+                                <p class="mb-2">اسلایدر صفحه اصلی</p>
+                                <div class="bannerPage p-3">
+                                    <div class="sliderImage d-flex flex-wrap align-items-center justify-content-around">
+                                        <div class="col-md-4 col-12">
+                                            <img src="" id="mainPageSlider1" class="img-fluid"/>
+                                            <br/>
+                                            <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                <span class="m-0">ویرایش تصویر</span>
+                                                <input type='file' class="form-control d-none" id="editSlider1"
+                                                       onChange="editPageSlider(this,'mainPageSlider1');"
+                                                       accept="image/*" />
+                                            </label>
+                                        </div>
+
+                                        <div class="col-md-4 col-12">
+                                            <img src="" id="mainPageSlider2" class="img-fluid"/>
+                                            <br/>
+                                            <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                <span class="m-0">ویرایش تصویر</span>
+                                                <input type='file' class="form-control d-none" id="editSlider2"
+                                                       onChange="editPageSlider(this,'mainPageSlider2');"
+                                                       accept="image/*" />
+                                            </label>
+                                        </div>
+
+                                        <div class="col-md-4 col-12">
+                                            <img src="" id="mainPageSlider3" class="img-fluid"/>
+                                            <br/>
+                                            <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                <span class="m-0">ویرایش تصویر</span>
+                                                <input type='file' class="form-control d-none" id="editSlider3"
+                                                       onChange="editPageSlider(this,'mainPageSlider3');"
+                                                       accept="image/*" />
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <hr/>
+                                    <button class="btn btn-success d-flex align-items-center justify-content-center ml-auto mr-auto"
+                                            onClick="updatemainPageSliders()" style="width: 150px">
+                                        <img src="./images/spinner.gif" class="d-none loading mainPageLoader"  alt="loading">&nbsp;
+                                        <span>ارسال اطلاعات</span>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <!----buy page slider------>
+                            <p class="text-danger text-right mt-4">*حداکثر ابعاد عکس برای اسلایدرهای صفحه خرید: 570 &times; 1350</p>
+                            <div class="col-12 mt-2">
+                                <p class="mb-2">اسلایدر صفحه خرید</p>
+                                <div class="bannerPage p-3">
+                                    <div class="sliderImage d-flex flex-wrap align-items-center justify-content-around">
+                                        <div class="col-md-4 col-12">
+                                            <img src="" id="buyPageSlider1" class="img-fluid"/>
+                                            <br/>
+                                            <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                <span class="m-0">ویرایش تصویر</span>
+                                                <input type='file' class="form-control d-none" id="buyEditSlider1"
+                                                       onChange="editPageSlider(this,'buyPageSlider1');"
+                                                       accept="image/*" />
+                                            </label>
+                                        </div>
+
+                                        <div class="col-md-4 col-12">
+                                            <img src="" id="buyPageSlider2" class="img-fluid"/>
+                                            <br/>
+                                            <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                <span class="m-0">ویرایش تصویر</span>
+                                                <input type='file' class="form-control d-none" id="buyEditSlider2"
+                                                       onChange="editPageSlider(this,'buyPageSlider2');"
+                                                       accept="image/*" />
+                                            </label>
+                                        </div>
+
+                                        <div class="col-md-4 col-12">
+                                            <img src="" id="buyPageSlider3" class="img-fluid"/>
+                                            <br/>
+                                            <label class="btn btn-primary text-center pr-4 pl-4" >
+                                                <span class="m-0">ویرایش تصویر</span>
+                                                <input type='file' class="form-control d-none" id="buyEditSlider3"
+                                                       onChange="editPageSlider(this,'buyPageSlider3');"
+                                                       accept="image/*" />
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                    <hr/>
+                                    <button class="btn btn-success d-flex align-items-center justify-content-center ml-auto mr-auto"
+                                            onClick="updateBuyPageSliders()" style="width: 150px">
+                                        <img src="./images/spinner.gif" class="d-none loading buyPageLoader"  alt="loading">&nbsp;
+                                        <span>ارسال اطلاعات</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <!-------->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!----------------script---------------->
+<script src="scripts/siteBanner.js" type="text/javascript"></script>

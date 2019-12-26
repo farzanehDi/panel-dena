@@ -23,8 +23,8 @@ $(document).ready(function() {
 //------------send excel file----------
     $('#sendChargeCardGroup').on('click', function (e) {
 
-        if($('#uploadDepositingReceipt').val()==='' || $('#uploadChargeCard').val()===''){
-            toastr.error("لطفا فیش واریزی و فایل اکسل را بارگزاری کنید");
+        if($('#uploadChargeCard').val()===''){
+            toastr.error("لطفا فایل اکسل را بارگزاری کنید");
             return false;
         }
 
@@ -32,12 +32,10 @@ $(document).ready(function() {
 
         let formData = new FormData();
         formData.append('section', 'general');
-        //formData.append('action', 'previewImg');
         formData.append('excel', $('#uploadChargeCard')[0].files[0]);
-        formData.append('image', $('#uploadDepositingReceipt')[0].files[0]);
 
         $.ajax({
-            url: uploadPan,
+            url:sendExcel+'charge',
             type: "POST",             // Type of request to be send, called as method
             data:formData, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
             contentType: false,       // The content type used when sending data to the server.
@@ -49,12 +47,17 @@ $(document).ready(function() {
             success: function(data)   // A function to be called if request succeeds
             {
 
-                // console.log(data);
                 $('#loading').addClass('d-none');
-                $(".uploadedDepositingReceipt , .uploadedChargeGroupCardExcel").removeClass('d-block').addClass('d-none');
-                $("#uploadDepositingReceiptContainer,#uploadChargeGroupCardExcel").removeClass('d-none');
-                $('#uploadChargeCard,#uploadDepositingReceipt').val('');
-                toastr.success("آپلود فایل با موفقیت انجام شد");
+                if(data.status==0){
+                    $('#loading').addClass('d-none');
+                    $(".uploadedChargeGroupCardExcel").removeClass('d-block').addClass('d-none');
+                    $("#uploadChargeGroupCardExcel").removeClass('d-none');
+                    $('#uploadChargeCard').val('');
+                    toastr.success(data.msg);
+                }else{
+                    toastr.error(data.msg)
+                }
+
 
             },
             error: function(){
@@ -68,20 +71,26 @@ $(document).ready(function() {
     //--------------------download file-----------
     $('#downloadChargeCardGroup').on('click', function (e) {
 
-        fetch('...', {
+        $(".load-content").show();
+        fetch(getExcel+'charge', {
             method: "GET",
             headers:{
                 Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
             }
         }).then(async (response) =>{
-
+            $(".load-content").hide();
             await response.json().then(async (data) => {
 
-                window.location.href=data;
+                if(data.status==0){
+                    window.location.href=data;
+                }else {
+                    toastr.error(data.msg);
+                }
 
             });
 
         }).catch(err => {
+            $(".load-content").hide();
             toastr.error("متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش کنید");
             console.log('error to fetch categories')
         });
@@ -106,7 +115,7 @@ function onDropChargeGroupCardExcel(input,successContainer,name,uploadContaner){
             return false;
         }
     }else{
-        if($.inArray(ext, ['xlsx']) == -1) {
+        if($.inArray(ext, ['xlsx','xls']) == -1) {
             toastr.error("شما مجاز به انتخاب فایل اکسل می باشید");
             $(`#${input}`).val('');
             return false;

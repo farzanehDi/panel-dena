@@ -229,16 +229,10 @@ select {
 
 .form-control:focus {
   box-shadow: none;
-  border-color: #ad1f24;
+  border-color: #62c5c7;
   background: #fff;
 }
-.header-login {
-  background: #d61e36;
-  background: -moz-linear-gradient(left, #d61e36 14%, #ba1631 99%);
-  background: -webkit-linear-gradient(left, #d61e36 14%, #ba1631 99%);
-  background: linear-gradient(to right, #d61e36 14%, #ba1631 99%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d61e36', endColorstr='#ba1631',GradientType=1 );
-}
+
 .header-login img {
   padding: 10px 0;
 }
@@ -282,7 +276,7 @@ select {
   margin-top: 25px;
   margin-bottom:60px;
   background-color: #e6e6e6;
-  color: #ba1631;
+  color: #000074;
   font-weight: bold;
 }
 
@@ -352,7 +346,7 @@ label#khcharge {
   margin-bottom: 25px;
   padding: 5px;
   background-color: #e6e6e6;
-  color: #6e0404;
+  color: #000074;
 }
 .page-title .fa , .page-title .fas{
   color: #c1bbbb;
@@ -508,7 +502,7 @@ span.input-icon {
 /* When the checkbox is checked, add a blue background */
 .containerCheckbox input:checked ~ .checkmark {
   transition: all 0.5s ease-in-out;
-  border: 1px solid #7e0b0c;
+  border: 1px solid #18a2b8;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -529,40 +523,13 @@ span.input-icon {
   top: 1px;
   width: 5px;
   height: 11px;
-  border: solid #7c0a0b;
+  border: solid #000073;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-.footer {
-  width: 100%;
-  margin: 0;
-  bottom: 0;
-  right: 0;
-  height: 40px;
-  line-height: 40px;
-  color: white;
-  text-align: center;
-  background: #bb252b; /* Old browsers */
-  background: -moz-linear-gradient(
-    left,
-    #bb252b 1%,
-    #6e0404 59%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    left,
-    #bb252b 1%,
-    #6e0404 59%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to right,
-    #bb252b 1%,
-    #6e0404 59%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bb252b', endColorstr='#6e0404',GradientType=1 ); /* IE6-9 */
-}
 
 /**
  * ========================================
@@ -631,7 +598,7 @@ span.input-icon {
  */
 
 .modal-edit .modal-header {
-  background-color: #5bc0de;
+  background-color: #61c5c7;
   color: #fff;
   font-size: 16px;
 }
@@ -746,7 +713,7 @@ span.input-icon {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #6e0404;
+  background: #425c5d;
 }
 .loading-container .loader {
   width: 6px;
@@ -757,10 +724,13 @@ span.input-icon {
   -webkit-animation: loading 1s linear infinite alternate;
   -moz-animation: loading 1s linear infinite alternate;
   animation: loading 1s linear infinite alternate;
-  margin: 50vh auto;
   position: relative;
-  left: -12px;
+  left: -38px;
   background-color: #fff;
+}
+
+#loading-main img{
+  width:60px;
 }
 
 .loading-container.loading-inactive,
@@ -797,9 +767,8 @@ span.input-icon {
 }
 
 .custom-datatable .table-condensed > thead > tr > th {
-  /*padding: 8px 18px;*/
   padding: 8px;
-  border-bottom: 3px solid #d61f36;
+  /*border-bottom: 3px solid #d61f36;*/
 }
 .custom-datatable .dataTables_filter input {
   border: 1px solid #d5d5d5;
@@ -816,7 +785,7 @@ span.input-icon {
 }
 .custom-datatable table.dataTable thead th,
 .custom-datatable table.dataTable thead td {
-  border-bottom: 3px solid #d61f36;
+  border-bottom: 3px solid #000073;
 }
 .custom-datatable .table-bordered > tbody > tr > td {
   border-top: 0;
@@ -829,49 +798,6 @@ span.input-icon {
 .custom-datatable div.dt-button,
 .custom-datatable a.dt-button {
   padding: 0.3em 0.7em;
-}
-
-.custom-datatable
-  .dataTables_wrapper
-  .dataTables_paginate
-  .paginate_button:hover {
-  color: white !important;
-  border: 1px solid #d61f36;
-  background-color: #d61f36;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0%, #ec96a1),
-    color-stop(100%, #d61f36)
-  );
-  background: -webkit-linear-gradient(top, #ec96a1 0%, #d61f36 100%);
-  background: -moz-linear-gradient(top, #ec96a1 0%, #d61f36 100%);
-  background: -ms-linear-gradient(top, #ec96a1 0%, #d61f36 100%);
-  background: -o-linear-gradient(top, #ec96a1 0%, #d61f36 100%);
-  background: linear-gradient(to bottom, #ec96a1 0%, #d61f36 100%);
-}
-
-.custom-datatable
-  .dataTables_wrapper
-  .dataTables_paginate
-  .paginate_button:active {
-  outline: none;
-  color: #fff !important;
-  background-color: #d61f36;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0%, #ec96a1),
-    color-stop(100%, #d61f36)
-  );
-  background: -webkit-linear-gradient(top, #ec96a1 0%, #d61f36 100%);
-  background: -moz-linear-gradient(top, #ec96a1 0%, #d61f36 100%);
-  background: -ms-linear-gradient(top, #ec96a1 0%, #d61f36 100%);
-  background: -o-linear-gradient(top, #ec96a1 0%, #d61f36 100%);
-  background: linear-gradient(to bottom, #ec96a1 0%, #d61f36 100%);
-  box-shadow: inset 0 0 3px #ba1631;
 }
 
 .header-logo {
@@ -905,7 +831,7 @@ span.input-icon {
 .u-pr-z {
   padding-right: 0 !important;
 }
-.modal i.fa {
+.modal i.fa,.modal i.fas {
   text-align: center;
 }
 
@@ -1026,7 +952,7 @@ span.input-icon {
 .uploaded .fa-check,.uploaded .fa-file-excel,.uploadedActiveGroupCardExcel .fa-file-excel,
 .uploadedActiveGroupCardExcel .fa-check,.uploadedChargeGroupCardExcel .fa-file-excel,
 .uploadedChargeGroupCardExcel .fa-check,.uploadedDepositingReceipt .fa-file-invoice-dollar,
-.uploadedDepositingReceipt .fa-check{
+.uploadedDepositingReceipt .fa-check,.uploaded .fa-mobile-alt{
   font-size: 60px;color:green
 }
 
@@ -1082,14 +1008,17 @@ input.form-control,select.form-control{
 
 .downloadFile{
   cursor: pointer;
-  font-size:80px;
   color:gray;
   border:solid lightgray 1px;
   padding: 8px;
   border-radius: 6px;
 }
+.downloadFile i {
+  font-size:80px;
+}
 .downloadFile:hover,.uploadFile:hover{
   color: rgba(22, 79, 22, 0.76);
+  font-weight: bold;
   -moz-box-shadow: 0 0 3px #ccc;
   -webkit-box-shadow: 0 0 3px #ccc;
   box-shadow: 0 0 3px #ccc;
@@ -1125,6 +1054,17 @@ input.form-control,select.form-control{
  cursor: pointer;
   margin-top: -4px;
 }
+.removeImgSite{
+  width:25px;
+  height:25px;
+  border:solid red 1px;
+  border-radius: 50%;
+  position:relative;
+  bottom: 90px;
+  right: -10px;
+ cursor: pointer;
+  /*margin-top: -4px;*/
+}
 
 /*.sendBtn{*/
   /*margin-top:-45px!important;*/
@@ -1148,6 +1088,10 @@ input.form-control,select.form-control{
   margin-top:-20px;
   width: 150px;
 }
+.updateImgSite{
+  margin-top:-26px;
+  width: 150px;
+}
 
 .form-control:disabled, .form-control[readonly]{
   background-color: #f9f9f9 !important;
@@ -1167,5 +1111,31 @@ input.form-control,select.form-control{
   justify-content: center;
   padding:12px;
   line-height: 10px;
-  color:#be1731;
+  color:#000073;
 }
+
+.btn-primary{
+  background-color: #000073;
+  border-color: #000073;
+}
+
+.bannerPage{
+  border-radius: 5px;border: solid #dfdfdf 1px
+}
+.bannerPage .img-fluid{
+  width: 150px;height: 80px
+}
+
+#sliders .btn-primary{
+  width: 150px;
+  height:30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#sliders hr{
+  border-top:1px solid rgba(41, 167, 70, 0.40);
+}
+/*#sliders .bannerPage{*/
+  /*border-color:rgb(41, 167, 70);*/
+/*}*/

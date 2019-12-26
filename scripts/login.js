@@ -78,7 +78,7 @@ $(document).ready(function() {
         password: $("#inputPassword").val()
       });
       $.ajax({
-        url: "http://ytciran.ir/api/login",
+        url: login,
         type: "POST",
         dataType: "json",
         data: jsonData,
@@ -93,7 +93,7 @@ $(document).ready(function() {
 
   function OnSuccess(data) {
 
-    console.log(data);
+
     $('#login img').addClass('d-none');
     if(data.status==100){
       document.cookie = "role=" + data.role + ";path=/";

@@ -21,13 +21,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#C61933">
 
     <!-- PAGE TITLE -->
-    <title>پنل کاربری | کادونا</title>
+    <title>پنل کاربری | نورا</title>
 
     <!--[if lt IE 9]>
     <script src="script/html5shiv.min.js"></script>
     <![endif]-->
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="./images/Logo-kadoona.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png" />
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="styles/bootstrap.min.css" />
@@ -53,8 +53,13 @@
     LOADING CONTAINER
     =================================
     -->
-    <div id="loading-main" class="loading-container">
-        <div class="loader"></div>
+    <div id="loading-main" class="loading-container d-flex align-items-center justify-content-center">
+
+        <div>
+            <img src="images/logo.png" alt="کارت هدیه نورا">
+            <div class="loader"></div>
+        </div>
+
     </div>
     <div class="main">
         <!--
@@ -92,7 +97,7 @@
             <div class="sidebar left ">
                 <ul class="list-sidebar panel-group" id="openMenu">
                     <div class="sidebar-log text-center">
-                        <img src="images/Logo-kadoona.png" alt="" class="img-responsive">
+                        <img src="images/logo.png" alt="" class="img-responsive">
                     </div>
                     <li class="owner editor admin agent">
                         <a href="mainPage" class="title_menu">
@@ -113,24 +118,24 @@
                             <li class="owner admin agent">
                                 <a href="panUpload" class="title_menu"><span class="sub-menu-txt">بارگزاری دستی دیتا کارت</span></a>
                             </li>
-                            <!--<li class="owner admin agent">-->
-                                <!--<a href="activateGroupCard" class="title_menu"><span class="sub-menu-txt">فعال سازی کارت گروهی</span></a>-->
-                            <!--</li>-->
+                            <li class="owner admin agent">
+                                <a href="activateGroupCard" class="title_menu"><span class="sub-menu-txt">فعال سازی کارت گروهی</span></a>
+                            </li>
                             <!--<li class="owner admin agent">-->
                                 <!--<a href="activateCard" class="title_menu"><span class="sub-menu-txt">فعال سازی کارت</span></a>-->
                             <!--</li>-->
-                            <!--<li class="owner admin agent">-->
-                                <!--<a href="chargeGroupCard" class="title_menu"><span class="sub-menu-txt">شارژ کارت گروهی</span></a>-->
-                            <!--</li>-->
-                            <!--<li class="owner editor">-->
-                                <!--<a href="cardProductionInformation" class="title_menu"><span class="sub-menu-txt">اطلاعات تولید کارت</span></a>-->
-                            <!--</li>-->
+                            <li class="owner admin agent">
+                                <a href="chargeGroupCard" class="title_menu"><span class="sub-menu-txt">شارژ کارت گروهی</span></a>
+                            </li>
+                            <li class="owner editor">
+                                <a href="cardProductionInformation" class="title_menu"><span class="sub-menu-txt">اطلاعات تولید کارت</span></a>
+                            </li>
                             <li class="owner">
                                 <a href="limitations" class="title_menu"><span class="sub-menu-txt">محدودیت ها</span></a>
                             </li>
-                            <!--<li>-->
-                                <!--<a href="KadoonaOrder" class="title_menu"><span class="sub-menu-txt">اطلاعات تولید کارت</span></a>-->
-                            <!--</li>-->
+                            <li>
+                                <a href="KadoonaOrder" class="title_menu"><span class="sub-menu-txt">اطلاعات تولید کارت</span></a>
+                            </li>
                             <!--<li><a href="OrganOrder" class="title_menu"><span class="sub-menu-txt">اکسل-->
                                         <!--سازمان</span></a>-->
                             <!--</li>-->
@@ -187,28 +192,35 @@
                         </ul>
                     </li>
 
-                    <li class="owner admin">
-                        <a href="addPersonUsers" class="title_menu">
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                            <span class="nav-label ">مدیریت کاربران</span>
-                        </a>
-                    </li>
-                    <!--<li class="owner admin users-managment panel " >-->
-                        <!--<a data-toggle="collapse" data-target="#users-mng" class="collapsed active"-->
-                           <!--data-parent="#openMenu">-->
+                    <!--<li class="owner admin">-->
+                        <!--<a href="addPersonUsers" class="title_menu">-->
                             <!--<i class="fa fa-users" aria-hidden="true"></i>-->
-                            <!--<span class="nav-label">مدیریت کاربران</span>-->
-                            <!--<span class="fa fa-chevron-left float-left"></span> </a>-->
-                        <!--<ul class="sub-menu collapse" id="users-mng">-->
-                            <!--<li class="owner admin">-->
-                                <!--<a href="addPersonUsers" class="title_menu"><span class="sub-menu-txt">کاربران</span></a>-->
-                            <!--</li>-->
+                            <!--<span class="nav-label ">مدیریت کاربران</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <li class="owner admin users-managment panel " >
+                        <a data-toggle="collapse" data-target="#users-mng" class="collapsed active"
+                           data-parent="#openMenu">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span class="nav-label">مدیریت کاربران</span>
+                            <span class="fa fa-chevron-left float-left"></span> </a>
+                        <ul class="sub-menu collapse" id="users-mng">
+                            <li class="owner admin">
+                                <a href="addPersonUsers" class="title_menu"><span class="sub-menu-txt">کاربران</span></a>
+                            </li>
+                            <li class="owner admin">
+                                <a href="sendSMS" class="title_menu"><span class="sub-menu-txt">ارسال پیامک</span></a>
+                            </li>
+                            <li class="owner admin">
+                                <a href="promotionalText" class="title_menu"><span class="sub-menu-txt">متن تبلیغاتی</span></a>
+                            </li>
+
                             <!--<li class="owner">-->
                                 <!--<a href="addPersonUsers" class="title_menu"><span class="sub-menu-txt">سطح دسترسی</span></a>-->
                             <!--</li>-->
-                           <!---->
-                        <!--</ul>-->
-                    <!--</li>-->
+
+                        </ul>
+                    </li>
 
                     <!--<li class="owner admin panel " >-->
                         <!--<a data-toggle="collapse" data-target="#designers" class="collapsed active"-->
@@ -234,35 +246,35 @@
                         </a>
                     </li>
 
-                    <!--<li class="owner admin system-managment panel " >-->
-                        <!--<a data-toggle="collapse" data-target="#sys-mng" class="collapsed active"-->
-                           <!--data-parent="#openMenu">-->
-                            <!--<i class="fas fa-cog"></i>-->
-                            <!--<span class="nav-label">مدیریت سیستم</span>-->
-                            <!--<span class="fa fa-chevron-left float-left"></span> </a>-->
-                        <!--<ul class="sub-menu collapse" id="sys-mng">-->
-                            <!--<li class="owner admin">-->
-                                <!--<a href="" class="title_menu"><span class="sub-menu-txt">وضعیت سرویس ها</span></a>-->
-                            <!--</li>-->
-                            <!--<li class="owner admin">-->
-                                <!--<a href="" class="title_menu"><span class="sub-menu-txt">محدودیت ها</span></a>-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                    <!--</li>-->
+                    <li class="owner admin system-managment panel " >
+                        <a data-toggle="collapse" data-target="#sys-mng" class="collapsed active"
+                           data-parent="#openMenu">
+                            <i class="fas fa-cog"></i>
+                            <span class="nav-label">مدیریت سیستم</span>
+                            <span class="fa fa-chevron-left float-left"></span> </a>
+                        <ul class="sub-menu collapse" id="sys-mng">
+                            <li class="owner admin">
+                                <a href="serviceStatus" class="title_menu"><span class="sub-menu-txt">وضعیت سرویس ها</span></a>
+                            </li>
+                            <li class="owner admin">
+                                <a href="systemConstraints" class="title_menu"><span class="sub-menu-txt">محدودیت ها</span></a>
+                            </li>
+                        </ul>
+                    </li>
 
-                    <!--<li class="owner admin panel " >-->
-                        <!--<a data-toggle="collapse" data-target="#site-mng" class="collapsed active"-->
-                           <!--data-parent="#openMenu">-->
-                            <!--<i class="fas fa-globe"></i>-->
-                            <!--<span class="nav-label">مدیریت سایت</span>-->
-                            <!--<span class="fa fa-chevron-left float-left"></span> </a>-->
-                        <!--<ul class="sub-menu collapse" id="site-mng">-->
-                            <!--<li class="owner admin">-->
-                                <!--<a href="" class="title_menu"><span class="sub-menu-txt">سرویس سایت</span></a>-->
-                            <!--</li>-->
-                            <!--<li class="owner admin">-->
-                                <!--<a href="" class="title_menu"><span class="sub-menu-txt">بنرها</span></a>-->
-                            <!--</li>-->
+                    <li class="owner admin panel " >
+                        <a data-toggle="collapse" data-target="#site-mng" class="collapsed active"
+                           data-parent="#openMenu">
+                            <i class="fas fa-globe"></i>
+                            <span class="nav-label">مدیریت سایت</span>
+                            <span class="fa fa-chevron-left float-left"></span> </a>
+                        <ul class="sub-menu collapse" id="site-mng">
+                            <li class="owner admin">
+                                <a href="siteService" class="title_menu"><span class="sub-menu-txt">سرویس سایت</span></a>
+                            </li>
+                            <li class="owner admin">
+                                <a href="siteBanner" class="title_menu"><span class="sub-menu-txt">بنرها</span></a>
+                            </li>
                             <!--<li class="owner admin">-->
                                 <!--<a href="" class="title_menu"><span class="sub-menu-txt">طرح های ویژه</span></a>-->
                             <!--</li>-->
@@ -276,8 +288,8 @@
                                 <!--<a href="" class="title_menu"><span class="sub-menu-txt">برندها</span></a>-->
                             <!--</li>-->
 
-                        <!--</ul>-->
-                    <!--</li>-->
+                        </ul>
+                    </li>
 
                     <li class="owner admin panel" >
                         <a data-toggle="collapse" data-target="#appService" class="collapsed active"
@@ -289,9 +301,12 @@
                             <!--<li><a href="appUserList" class="title_menu"><span class="sub-menu-txt">لیست کاربران-->
                             <!--APP</span></a>-->
                             <!--</li>-->
-                            <!--<li class="owner admin">-->
-                                <!--<a href="systemStatus" class="title_menu"><span class="sub-menu-txt">سرویسAPP</span></a>-->
-                            <!--</li>-->
+                            <li class="owner admin">
+                                <a href="systemStatus" class="title_menu"><span class="sub-menu-txt">سرویسAPP</span></a>
+                            </li>
+                            <li class="owner admin">
+                                <a href="uploadApp" class="title_menu"><span class="sub-menu-txt">بارگزاری اپلیکیشن</span></a>
+                            </li>
                             <li class="owner admin"><a href="textChange" class="title_menu"><span class="sub-menu-txt">پیام تبلیغاتی</span></a>
                             </li>
                         </ul>
@@ -304,9 +319,9 @@
                             <span class="nav-label">گزارشات و جستجو</span>
                             <span class="fa fa-chevron-left float-left"></span> </a>
                         <ul class="sub-menu collapse" id="reports">
-                            <!--<li class="owner admin">-->
-                                <!--<a href="" class="title_menu"><span class="sub-menu-txt">گزارش ماتریسی</span></a>-->
-                            <!--</li>-->
+                            <li class="owner admin">
+                                <a href="matrixReport" class="title_menu"><span class="sub-menu-txt">گزارش ماتریسی</span></a>
+                            </li>
                             <li class="owner admin">
                                 <a href="information" class="title_menu"><span class="sub-menu-txt">گزارش پنل پیامکی</span></a>
                             </li>

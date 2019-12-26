@@ -203,9 +203,28 @@ function locationHashChanged() {
     if (location.hash.split('?')[0] == "#orderDetails") {
         $(".ajax_container").load("orderDetails.html");
     }
-  // if (location.hash == "#OrganOrder") {
-  //   $(".ajax_container").load("OrganOrder.html");
-  // }
+    if (location.hash.split('?')[0] == "#promotionalText") {
+        $(".ajax_container").load("promotionalText.html");
+    }
+    if (location.hash.split('?')[0] == "#serviceStatus") {
+        $(".ajax_container").load("serviceStatus.html");
+    }
+    if (location.hash.split('?')[0] == "#systemConstraints") {
+        $(".ajax_container").load("systemConstraints.html");
+    }
+    if (location.hash.split('?')[0] == "#matrixReport") {
+        $(".ajax_container").load("matrixReport.html");
+    }
+    if (location.hash.split('?')[0] == "#siteService") {
+        $(".ajax_container").load("siteService.html");
+    }
+    if (location.hash.split('?')[0] == "#uploadApp") {
+        $(".ajax_container").load("uploadApp.html");
+    }
+    if (location.hash.split('?')[0] == "#siteBanner") {
+        $(".ajax_container").load("siteBanner.html");
+    }
+
 
   $("ul.list-sidebar li a").each(function() {
     if (h == "") {

@@ -1,0 +1,40 @@
+
+<!----------------body---------------->
+<div class="load-content">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div>
+<div class="no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title d-flex align-items-center"><i class="far fa-comments">&nbsp;</i>متن تبلیغاتی</h1>
+        <div class="panelBox animated fadeIn">
+            <h2 class="panelBox-title">متن تبلیغاتی مورد نظر خود را وارد کنید:</h2>
+            <div class="panelBox-body d-flex align-items-center justify-content-between">
+
+                <div class="d-flex flex-column col-lg-8 col-12">
+
+                    <div class="form-group mb-3">
+                        <div class="col-lg-8 col-12 p-0">
+
+                            <textarea class="form-control" rows="5" id="promotionalTxt"></textarea>
+
+                            <button class="btn btn-info text-nowrap d-flex align-items-center mt-3 mr-auto ml-auto"
+                                    onclick="sendPromotionalTxt()" style="height: 40px">
+                                <img src="./images/spinner.gif" class="img-fluid d-none loading promotionalTxt"  alt="loading">
+                                &nbsp;ارسال اطلاعات </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img src="./images/promotionalTxt.png" style="width:200px" class="img-fluid d-none d-lg-block" alt="محدودیت ها"/>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script src="scripts/promotionalText.js" type="text/javascript"></script>

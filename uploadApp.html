@@ -1,0 +1,59 @@
+
+<!----------------body---------------->
+<div class="load-content">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div>
+<div class="no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title d-flex align-items-center"><i class="fa fa-mobile-alt" aria-hidden="true"></i>بارگزاری اپلیکیشن</h1>
+        <div class="panelBox animated fadeIn">
+            <h2 class="panelBox-title">با کلیک بر روی تصویر زیر فایل خود را انتخاب نمایید:</h2>
+            <div class="p-0 panelBox-body">
+                <p class="text-right mb-3 mt-3 text-success">آدرس فایل کنونی : <span id="appUrl"></span></p>
+
+                <!--<div class="row" style="width: 50%;margin: auto">-->
+                <div class="col-12 d-flex flex-column">
+                    <div class="formContainer col-lg-3 col-md-4 col-12 mr-auto ml-auto">
+
+                        <label class="btn btn-file  mt-4 text-center" >
+
+                            <div id="upload">
+                                <i class="fas fa-upload" ></i>
+                                <p class="mt-3 text-muted">فایل خود را انتخاب نمایید</p>
+                            </div>
+
+                            <div class="d-none uploaded" >
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-check" >&nbsp;&nbsp;</i>
+                                    <i class="fas fa-mobile-alt" ></i>
+                                </div>
+                                <p class="mt-4 text-secondary" id="fileName"></p>
+
+                            </div>&nbsp;
+
+                            <input type='file' class="d-none" id="uploadApp"  onchange="onDrop()"
+                                   accept="application/vnd.ms-excel , application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                        </label>
+                        <br/>
+                        <button class="uploaded d-none btn btn-warning pr-5 pl-5 m-auto " id="removeFile" onclick="removeFile()">حذف فایل</button>
+
+                    </div>
+
+                    <div class="text-center d-flex justify-content-center mt-4 mb-5">
+                        <button id="sendApp" class="col-lg-3 col-md-4 col-12 col-sm-8 btn btn-info d-flex align-items-center
+                             justify-content-center mr-auto ml-auto">
+                            <img id='loading' src='images/spinner.gif' class="d-none" >&nbsp;
+                            <span>ارسال اطلاعات</span>
+
+                        </button>
+                    </div>
+
+                </div>
+                <!--</div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="scripts/uploadApp.js" type="text/javascript"></script>

@@ -303,9 +303,10 @@ $(document).ready(function() {
       id = itemInfo.id;
 
 
+
     $("#catId").val(id);
     $("#Ecatname").val(name);
-    $("#EcatParentId").val(parentId);
+    $("#EcatParentId").val(parentId)
     $("#EDmenu").prop("checked", display_on_menu == "true");
     $("#EDsidebar").prop("checked", display_on_sidebar == "true");
 

@@ -165,7 +165,7 @@ function order(){
 
         });
     }).catch(async (err) => {
-        $(".load-content").hide();
+            $(".load-content").hide();
             console.log("error to get order details")
         }
 
@@ -189,7 +189,7 @@ function cartsItem(){
             // console.log(data);
             $(".load-content").hide();
             $(".orderSection").html('');
-             await data.result.map((item,index)=>{
+            await data.result.map((item,index)=>{
 
                 $(".orderSection").append(`<div class="section p-lg-3 p-2 mb-3">
 
@@ -309,6 +309,7 @@ function changeStatus(){
             });
         }).catch(async (err) => {
                 $('#statusChangeBtn img').addClass('d-none');
+                toastr.error('متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش نمایید');
                 console.log("error to post processing")
             }
 
@@ -417,7 +418,7 @@ function orderStatusFn() {
     }).then(async (response) => {
         await response.json().then(async (data) => {
             $('#statusChangeBtn img').addClass('d-none');
-            console.log(data);
+            // console.log(data);
 
             if (data.status == 100) {
                 toastr.success('عملیات با موفقیت انجام شد');

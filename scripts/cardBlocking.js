@@ -171,7 +171,7 @@ $(document).ready(function() {
             return false;
         }
 
-        if($("#panNumber").val().length!==10){
+        if($("#panNumber").val().length!==16){
             $(errPan).insertAfter("#panNumber");
             $("#panNumber").addClass('borderRed');
             return false;

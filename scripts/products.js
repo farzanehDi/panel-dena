@@ -594,6 +594,4 @@ function removeImg(){
   $(`#productImage`).find('.removeImg1').addClass('d-none');
   $(`#productImage`).find('input').val('');
   $(`#productImage`).find('img').remove();
-
-
 }

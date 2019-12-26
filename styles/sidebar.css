@@ -1,9 +1,9 @@
 /** ======================  header ==============================**/
 .main header {
-    background: #d61e36; /* Old browsers */
-    background: -moz-linear-gradient(left, #d61e36 14%, #ba1631 99%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #d61e36 14%, #ba1631 99%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #d61e36 14%, #ba1631 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #ffc000; /* Old browsers */
+    background: -moz-linear-gradient(left, #ffc000 14%, #ffc000 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #ffc000 14%, #ffc000 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #ffc000 14%, #ffc000 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d61e36', endColorstr='#ba1631', GradientType=1); /* IE6-9 */
     z-index: 200;
     position: relative;
@@ -59,20 +59,20 @@
 
 .logout {
     font-size: 16px;
-    color: #fff;
+    color: #212121;
     /*float: left;*/
     padding: 10px 15px;
 }
 
 #current_date {
     font-size: 14px;
-    color: #f5eba1;
+    color: #212121;
     font-weight: 300;
     padding-top: 5px;
 }
 
 a.exit:hover, a.exit:focus {
-    color: #ffce55;
+    color: #212121;
 }
 
 .header .dropdown-menu {
@@ -364,14 +364,14 @@ a.navbar-brand {
 
 .page-active {
     background: #f1f1f1;
-    border-right: 5px solid #d61e36;
+    border-right: 5px solid #61c5c7;
 }
 .page-active .fa ,.page-active .nav-label,.page-active i{
-    color: #77110c!important;
+    color: #000074!important;
 }
 
 .page-active .sub-menu li.active a, .activeSubmenu {
-    color: #d61e36;
+    color: rgba(0, 0, 144, 0.99);
 }
 li.active a:before{
     border-color: #77110c;

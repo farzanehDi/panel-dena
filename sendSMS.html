@@ -1,31 +1,69 @@
 <!----------------body---------------->
 <div class=" no_margin">
     <div class="col-md-12">
-        <h1 class="page-title"><i class="fa fa-envelope-o" aria-hidden="true"></i> ارسال SMS</h1>
+        <h1 class="page-title d-flex align-items-center"><i class="fa fa-envelope" aria-hidden="true"></i> ارسال پیامک</h1>
         <div class="panelBox animated fadeIn">
-            <h2 class="panelBox-title">ارسال پیام کوتاه</h2>
+            <h2 class="panelBox-title">شماره موبایل و پیغام مورد نظر خود را وارد نمایید:</h2>
             <div class="d-flex align-items-center flex-wrap mb-4 panelBox-body">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <div class="example">  مثال :   <span dir="ltr">989*********</span></div>
-                        <span class="input-icon icon-right">
-                            <input type="text" id="mobile" class="form-control noEmpty1 formatNumber" placeholder="شماره موبایل" tabindex="1">
-                            <i class="fa fa-mobile circular"></i>
-                        </span>
+
+                <div class="d-flex flex-column col-lg-8 col-12">
+
+                    <div class="form-group mb-3">
+                        <div class="col-lg-8 col-12 p-0">
+
+                            <div class="form-group">
+                                <div class="example">  مثال :   <span dir="ltr">989*********</span></div>
+                                <span class="input-icon icon-right">
+                                    <input type="text" id="mobile" class="form-control noEmpty1 formatNumber" placeholder="شماره موبایل" tabindex="1">
+                                    <i class="fa fa-mobile circular"></i>
+                                </span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <span class="">
+                                    <textarea rows="6" id="message" class="form-control noEmpty2" placeholder="متن پیام"
+                                              tabindex="2" style="resize: none;"></textarea>
+
+                                </span>
+                            </div>
+
+                            <button class="btn btn-info text-nowrap d-flex align-items-center mt-3 "
+                                    id="sendSMS" style="height: 40px" tabindex="3">
+                                <img src="./images/spinner.gif" class="img-fluid d-none loading sendSms"  alt="loading">
+                                &nbsp;ارسال پیام </button>
+                        </div>
 
                     </div>
+
+
                 </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <span class="input-icon icon-right">
-                            <textarea rows="6" id="message" class="form-control noEmpty2" placeholder="متن پیام"  tabindex="2" style="resize: none;"></textarea>
-                            <i class="fa fa-comments-o circular"></i>
-                        </span>
-                    </div>
+                <div class="col-lg-4 text-center">
+                    <img src="./images/orderSms.png" style="width:200px" class="img-fluid d-none d-lg-block" alt="محدودیت ها"/>
                 </div>
-                <div class="col-sm-12 text-right">
-                    <input id="sendSMS" type="submit" tabindex="3" value="ارسال پیام" class="btn btn-info">
-                </div>
+
+
+                <!--<div class="col-sm-6">-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="example">  مثال :   <span dir="ltr">989*********</span></div>-->
+                        <!--<span class="input-icon icon-right">-->
+                            <!--<input type="text" id="mobile" class="form-control noEmpty1 formatNumber" placeholder="شماره موبایل" tabindex="1">-->
+                            <!--<i class="fa fa-mobile circular"></i>-->
+                        <!--</span>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-6">-->
+                    <!--<div class="form-group">-->
+                        <!--<span class="input-icon icon-right">-->
+                            <!--<textarea rows="6" id="message" class="form-control noEmpty2" placeholder="متن پیام"  tabindex="2" style="resize: none;"></textarea>-->
+                            <!--<i class="fa fa-comments circular"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-12 text-right">-->
+                    <!--<input id="sendSMS" type="submit" tabindex="3" value="ارسال پیام" class="btn btn-info">-->
+                <!--</div>-->
             </div>
         </div>
     </div>

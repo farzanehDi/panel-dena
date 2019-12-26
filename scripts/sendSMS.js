@@ -28,7 +28,7 @@ $(document).ready(function() {
       error = 0,
       errTexr = '<div class="txt-error">* این فیلد ضروری است</div>';
 
-    for (var i = 1; i <= 3; i++) {
+    for (var i = 1; i <=2; i++) {
       if ($(".noEmpty" + i).val() == "") {
         if (
           !$(".noEmpty" + i)
@@ -54,6 +54,7 @@ $(document).ready(function() {
       return false;
     }
 
+      $('.sendSms').removeClass('d-none');
     $.ajax({
       url:
         sendSmsAddress +
@@ -68,10 +69,17 @@ $(document).ready(function() {
       dataType: "json",
       contentType: "application/json",
       success: function(data) {
-        toastr.success("ارسال پیغام با موفقیت انجام شد");
-        $(".form-control").val("");
+        $('.sendSms').addClass('d-none');
+          if(data==0){
+              $(".form-control").val("");
+              toastr.success('پیام شما با موفقیت ارسال شد');
+          }else{
+              toastr.error(data)
+          }
+
       },
       error: function(jqXHR, textStatus, errorThrown) {
+          $('.sendSms').addClass('d-none');
         if (jqXHR.status == 401) {
           window.location.href = "login.html";
         }

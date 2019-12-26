@@ -95,7 +95,7 @@
 
 .date-item-selected, .datepicker-plot-area .datepicker-day-view .table-days td span.selected, .datepicker-plot-area .datepicker-year-view .year-item.selected,
 .datepicker-plot-area .datepicker-month-view .month-item.selected {
-  background-color: #be1732 !important;
+  background-color: #61c5c7 !important;
   color: #ffffff;
   border: none;
   text-shadow: 1px 1px 1px #000000; }

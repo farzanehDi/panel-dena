@@ -28,22 +28,15 @@ $(document).ready(function() {
             return false;
         }
 
-        //var fd = new FormData();
-        //fd.append( 'file', $('#uploadimg')[0].files[0] );
-        //var formData = new FormData($(this)[0]);
-        //console.log(formData);
-        //
-        //var formDataSerialized = $(this).serialize();
-        //console.log(formDataSerialized);
+
         $('#loading').removeClass('d-none');
 
         let formData = new FormData();
         formData.append('section', 'general');
-        //formData.append('action', 'previewImg');
         formData.append('excel', $('input[type=file]')[0].files[0]);
 
         $.ajax({
-            url: uploadPan,
+            url:sendExcel+'active',
             type: "POST",             // Type of request to be send, called as method
             data:formData, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
             contentType: false,       // The content type used when sending data to the server.
@@ -55,12 +48,19 @@ $(document).ready(function() {
             success: function(data)   // A function to be called if request succeeds
             {
 
-                console.log(data);
                 $('#loading').addClass('d-none');
-                $(".uploadedActiveGroupCardExcel").removeClass('d-block').addClass('d-none');
-                $("#uploadActiveGroupCardExcel").removeClass('d-none');
-                $('#uploadActiveCard').val('');
-                toastr.success("آپلود فایل با موفقیت انجام شد");
+
+                console.log(data);
+                if(data.status==0){
+                    $('#loading').addClass('d-none');
+                    $(".uploadedActiveGroupCardExcel").removeClass('d-block').addClass('d-none');
+                    $("#uploadActiveGroupCardExcel").removeClass('d-none');
+                    $('#uploadActiveCard').val('');
+                    toastr.success(data.msg);
+                }else{
+                    toastr.error(data.msg)
+                }
+
 
             },
             error: function(){
@@ -71,25 +71,32 @@ $(document).ready(function() {
 
         });
     });
-    //--------------------download file-----------
+
+    //--------------------------------------------
     $('#downloadActiveCardGroup').on('click', function (e) {
 
-        fetch('...', {
+        $(".load-content").show();
+        fetch(getExcel+'active', {
             method: "GET",
             headers:{
                 Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
             }
         }).then(async (response) =>{
-
+            $(".load-content").hide();
             await response.json().then(async (data) => {
 
-                window.location.href=data;
-
+                console.log(data);
+                if(data.status==0){
+                    window.location.href=data;
+                }else {
+                    toastr.error(data.msg);
+                }
             });
 
         }).catch(err => {
+            $(".load-content").hide();
             toastr.error("متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش کنید");
-            console.log('error to fetch categories')
+            console.log('error to get download link')
         });
     });
 
@@ -104,7 +111,7 @@ $(document).ready(function() {
 
 function onDropActiveGroupCardExcel(){
     let ext = $('#uploadActiveCard').val().split('.').pop().toLowerCase();
-    if($.inArray(ext, ['xlsx']) == -1) {
+    if($.inArray(ext, ['xlsx','xls']) == -1) {
         toastr.error("شما مجاز به انتخاب فایل اکسل می باشید");
         $('#uploadActiveCard').val('');
         return false;

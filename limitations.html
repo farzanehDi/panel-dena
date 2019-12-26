@@ -10,47 +10,57 @@
             <h2 class="panelBox-title">محدودیت های مورد نظر خود را اعمال کنید:</h2>
             <div class="panelBox-body d-flex align-items-center justify-content-between">
 
-                <div class="d-flex flex-column col-lg-8 col-12">
-                    <!--<div class="form-group mb-2">-->
-                        <!--<div class="col-lg-8 col-12 p-0">-->
-                            <!--<p class="mb-2 text-right">حداقل مبلغ شارژ کارت هدیه(ریال):</p>-->
-                            <!--<div class="d-flex align-items-start flex-wrap">-->
-                                <!--<span class="input-icon icon-right col-lg-7 col-sm-9 col-12 p-0">-->
-                                    <!--<input type="text" id="minCharge" class="form-control  noEmpty"-->
-                                           <!--autocomplete="off" placeholder="مبلغ مورد نظر را وارد نمایید...">-->
-                                    <!--<i class="fas fa-dollar-sign circular"></i>-->
-                                <!--</span>&nbsp;-->
-                                <!--<button class="btn btn-danger text-nowrap" style="height: 40px">ارسال اطلاعات </button>-->
-                            <!--</div>-->
+                <div class="d-flex flex-column col-xl-8 col-lg-9 col-sm-10 col-12 p-0">
+                    <div class="form-group mb-2">
+                        <div class="col-lg-10 col-12 p-0">
+                            <div class="d-flex align-items-center flex-wrap">
+                                <div class="col-lg-4 col-sm-10 col-12 pl-md-2 pr-0 pl-sm-0">
+                                    <p class="mb-2 text-right text-nowrap">حداقل مبلغ شارژ کارت:</p>
+                                    <div class="d-flex align-items-start flex-wrap p-0">
+                                        <span class="input-icon icon-right col-12 p-0">
+                                            <input type="text" id="minCharge" class="form-control mb-0 noEmpty"
+                                                   autocomplete="off" >
+                                            <i class="fas fa-dollar-sign circular"></i>
+                                        </span>
 
-                        <!--</div>-->
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-sm-10 col-12 p-0">
+                                    <p class="mb-2 text-right text-nowrap">حداکثر مبلغ شارژ کارت:</p>
+                                    <div class="d-flex align-items-start flex-wrap p-0">
+                                        <span class="input-icon icon-right  col-12 p-0">
+                                                <input type="text" id="maxCharge" class="form-control noEmpty"
+                                                       autocomplete="off" >
+                                                 <i class="fas fa-dollar-sign circular"></i>
+                                        </span>
+
+                                    </div>
+                                </div>
+                                &nbsp;
+                                <button class="btn btn-info text-nowrap d-flex align-items-center mt-md-3 mt-sm-0 mb-sm-3 mb-lg-0"
+                                        onclick="updateMaxMin()" style="height: 40px">
+                                    <img src="./images/spinner.gif" class="img-fluid d-none loading loadingMaxMin"  alt="loading">
+                                    &nbsp;ارسال اطلاعات </button>
+
+                            </div>
 
 
-                    <!--</div>-->
-                <!--<div class="form-group mb-2">-->
-                    <!--<div class="col-lg-8 col-12 p-0">-->
-                        <!--<p class="mb-2 text-right">حداکثر مبلغ شارژ کارت هدیه(ریال):</p>-->
-                        <!--<div class="d-flex align-items-start flex-wrap">-->
-                            <!--<span class="input-icon icon-right col-lg-7 col-sm-9 col-12 p-0">-->
-                                    <!--<input type="text" id="maxCharge" class="form-control noEmpty"-->
-                                           <!--autocomplete="off" placeholder="مبلغ مورد نظر را وارد نمایید...">-->
-                                     <!--<i class="fas fa-dollar-sign circular"></i>-->
-                            <!--</span>&nbsp;-->
-                            <!--<button class="btn btn-danger text-nowrap" style="height: 40px">ارسال اطلاعات </button>-->
-                        <!--</div>-->
-                    <!--</div>-->
+                        </div>
 
-                <!--</div>-->
+
+                    </div>
+
                 <div class="form-group mb-3">
-                    <div class="col-lg-8 col-12 p-0">
+                    <div class="col-lg-10 col-12 p-0">
                         <p class="mb-2 text-right">تعداد کارت های قابل سفارش :</p>
                         <div class="d-flex align-items-start flex-wrap">
-                            <span class="input-icon icon-right col-lg-7 col-sm-9 col-12 p-0">
+                            <span class="input-icon icon-right col-lg-8 col-sm-10 col-12 p-0">
                                           <input type="number" id="numberOfCard" class="form-control noEmpty"
                                                  autocomplete="off" placeholder="مقدار مورد نظر را وارد نمایید...">
                                              <i class="fas fa-hashtag circular"></i>
                             </span>&nbsp;
-                            <button class="btn btn-danger text-nowrap d-flex align-items-center"
+                            <button class="btn btn-info text-nowrap d-flex align-items-center"
                                     onclick="numberOfCard()" style="height: 40px">
                                 <img src="./images/spinner.gif" class="img-fluid d-none loading loadingNumber"  alt="loading">
                                 &nbsp;ارسال اطلاعات </button>
@@ -58,15 +68,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-lg-8 col-12 p-0">
+                    <div class="col-lg-10 col-12 p-0">
                         <p class="mb-2 text-right">قیمت بدنه کارت(تومان):</p>
                         <div class="d-flex align-items-start flex-wrap">
-                            <span class="input-icon icon-right  col-lg-7 col-sm-9 col-12 p-0">
+                            <span class="input-icon icon-right  col-lg-8 col-sm-10 col-12 p-0">
                                 <input type="text" id="priceOfCardBody" class="form-control"
                                     autocomplete="off" placeholder="قیمت مورد نظر را وارد نمایید...">
                                     <i class="fas fa-dollar-sign circular"></i>
                             </span>&nbsp;
-                            <button class="btn btn-danger text-nowrap d-flex align-items-center"
+                            <button class="btn btn-info text-nowrap d-flex align-items-center"
                                     onclick="updateCostOfBodyCard()" style="height: 40px">
                                 <img src="./images/spinner.gif" class="img-fluid d-none loading loadingBody"  alt="loading">
                                 &nbsp;ارسال اطلاعات </button>
@@ -74,8 +84,8 @@
                     </div>
                 </div>
             </div>
-                <div class="col-lg-4 text-center">
-                    <img src="./images/limits1.png" style="width:250px" class="img-fluid d-none d-lg-block" alt="محدودیت ها"/>
+                <div class="col-xl-4 col-lg-3 col-sm-2 text-center  d-sm-none d-none d-lg-block pr-0">
+                    <img src="./images/limits1.png" style="width:250px" class="img-fluid" alt="محدودیت ها"/>
                 </div>
 
 
