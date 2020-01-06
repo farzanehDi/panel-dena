@@ -374,7 +374,7 @@ a.navbar-brand {
     color: rgba(0, 0, 144, 0.99);
 }
 li.active a:before{
-    border-color: #77110c;
+    border-color:#61c5c7;
 }
 /**
  * ========================================

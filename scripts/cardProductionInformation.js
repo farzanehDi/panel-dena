@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //------------------ SET LOCATION HASH -------------------
     window.location.hash = "cardProductionInformation";
-
+    $(".load-content").hide();
     //------------------ GET COOKIE TOKEN -------------------
     function getCookie(token) {
         var name = token + "=";
@@ -20,302 +20,69 @@ $(document).ready(function() {
     }
 
     //----------DATEPICKER---------
-    $("#Date1 , #Date2").persianDatepicker({
+    $("#Date1 , #Date2 , #dateStart , #dateEnd").persianDatepicker({
         altFormat: "YYYY MM DD HH:mm:ss",
         observer: true,
         format: "YYYY-MM-DD"
     });
-    //--------------------------SEARCH ORDER---------------------------
 
-    var date1 = $("#Date1").val(),
-        date2 = $("#Date2").val(),
-        time1 = $("#time1").val(),
-        time2 = $("#time2").val(),
-        minute1 = $("#minute1").val(),
-        minute2 = $("#minute2").val(),
-        sc1 = $("#sc1").val(),
-        sc2 = $("#sc2").val(),
-        orderid = $("#ordId").val(),
-        pan = $("#pan").val(),
-        RRN = $("#rrn").val(),
-        nationalcode = $("#nationalCode").val(),
-        cartType = $("input[name=type]:checked").val(),
-        orderStatus = $("input[name=state]:checked").val(),
-        title = "KD" + date1.substring(2, 10).replace(/\-/g, "");
-
-    time1 = time1 + ":" + minute1 + ":" + sc1;
-    time2 = time2 + ":" + minute2 + ":" + sc2;
-
-    if (orderid == "") orderid = "0";
-
-    if (pan == "") pan = "62210620";
-
-    if (orderStatus == undefined) orderStatus = "";
-
-    if (cartType == undefined) cartType = "";
+    //--------------------------card production info---------------------------
 
     $("#search").click(function() {
-        date1 = $("#Date1").val();
-        date2 = $("#Date2").val();
-        time1 = $("#time1").val();
-        time2 = $("#time2").val();
-        minute1 = $("#minute1").val();
-        minute2 = $("#minute2").val();
-        sc1 = $("#sc1").val();
-        sc2 = $("#sc2").val();
-        orderid = $("#ordId").val();
-        pan = $("#pan").val();
-        RRN = $("#rrn").val();
-        nationalcode = $("#nationalCode").val();
-        cartType = $("input[name=type]:checked").val();
-        orderStatus = $("input[name=state]:checked").val();
-        title = "KD" + date1.substring(2, 10).replace(/\-/g, "");
 
-        time1 = time1 + ":" + minute1 + ":" + sc1;
-        time2 = time2 + ":" + minute2 + ":" + sc2;
+        $(".load-content").show();
+        let date1 = $("#Date1").val();
+        let date2 = $("#Date2").val();
 
-        if (orderid == "") orderid = "0";
-        if (pan == "") pan = "62210620";
+        fetch(
+        `${adminActionAddress}??orderid=0&orderStatus=&dateStart=${date1}&timeStart=00:00:00&dateEnd=${date2}&timeEnd=23:59:59&nationalcode=&pan=6221&RRN=&cartType=`, {
+            method: "GET",
+            contentType:'application/json',
+            headers: {
+                Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
+            },
 
-        if (orderStatus == undefined) orderStatus = "";
-
-        if (cartType == undefined) cartType = "";
-
-        var errorTime = 0;
-        for (var i = 1; i <= 4; i++) {
-            if ($(".time" + i).val().length != 2) {
-                $(".time" + i).css({
-                    "border-color": "red",
-                    "box-shadow": "0px 0px 2px red"
-                });
-
-                errorTime = 1;
-            } else {
-                $(".time" + i).css({
-                    "border-color": "lightgray",
-                    "box-shadow": "0px 0px 0px lightgray"
-                });
+        }).then(async (response) =>{
+            // await response.json().then(async (data) => {
+                $(".load-content").hide();
+                // console.log(data);
+                window.location.href=`${adminActionAddress}??orderid=0&orderStatus=&dateStart=${date1}&timeStart=00:00:00&dateEnd=${date2}&timeEnd=23:59:59&nationalcode=&pan=6221&RRN=&cartType=`;
+            // });
+        }).catch(async (err) => {
+            $(".load-content").hide();
+                toastr.error('خطا در دریافت اطلاعات')
             }
-        }
 
-        if (errorTime == 1) {
-            toastr.error("زمان وارد شده باید دو رقمی باشد");
-            return false;
-        } else {
-            $(".load-content").show();
-            $("#finalList").DataTable().clear();
-            $("#finalList").DataTable().destroy();
-            getDataTable();
-        }
+        );
+
     });
 
-    var getDataTable = function() {
-        var t = $("#finalList").DataTable({
-            language: {
-                url: "./plugin/Persian.json",
-                buttons: {
-                    pageLength: {
-                        _: "نمایش %d سطر",
-                        "-1": "نمایش همه"
-                    }
-                }
-            },
-            columnDefs: [
-                {
-                    searchable: false,
-                    orderable: false,
-                    targets: 0
-                }
-            ],
-            order: [[1, "asc"]],
-            // processing: true,
-            filter: false,
-            targets: 0,
-            bDestroy:true,
-            dom: "Bfrtip",
-            scrollX: true,
 
-            lengthMenu: [
-                [10, 25, 50, -1],
-                ["10 سطر", "25 سطر", "50 سطر", "نمایش همه"]
-            ],
-            buttons: [
-                "pageLength",
+//    -------------post section---------------
+    $("#searchPostalInfo").click(function() {
 
-                {
-                    extend: "csv",
-                    text:
-                        '<i class="fa fa-download text-primary" aria-hidden="true"></i> دریافت فایل Csv',
-                    title: title,
-                    exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                    }
-                },
-                {
-                    extend: "excelHtml5",
-                    title: title,
-                    text:
-                        '<i class="fa fa-download text-primary" aria-hidden="true"></i> دریافت فایل Excel',
-                    exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                    }
-                }
-            ],
+        $(".load-content").show();
 
-            ajax: {
-                url: `
-        ${adminActionAddress}?orderid=${orderid}&orderStatus=${orderStatus}&dateStart=${date1}&timeStart=${time1}&dateEnd=${date2}&timeEnd=${time2}&nationalcode=${nationalcode}&pan=${pan}&RRN=${RRN}&cartType=${cartType}&orderType=Site`,
+        fetch(
+            `${postalInfo}&orderStatus=&nationalcode=&RRN=&dateStart=${$("#dateStart").val()}&dateEnd=${$("#dateEnd").val()}`, {
+                method: "GET",
+                contentType:'application/json',
                 headers: {
                     Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
                 },
-                dataSrc: function(res) {
-                    $(".load-content").hide();
-                    return res;
-                },
 
-                error: function(err) {
-                    if (err.status == 401) {
-                        window.location.href = "login.html";
-                    }
-                    $(".load-content").hide();
-                    toastr.error("خطا در برقراری ارتباط با سرور");
-                }
-            },
+            }).then(async (response) =>{
 
-            columns: [
-                { data: null },
-                { data: "orderID" },
-                {
-                    data: null,
-                    render: function(data) {
-                        return '<p dir="ltr">' + data.pan.panNo + "</p>";
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return "<p>" + data.pan.panNo.substring(0, 4) + "</p>";
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return "<p>" + data.pan.panNo.substring(5, 9) + "</p>";
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return "<p>" + data.pan.panNo.substring(10, 14) + "</p>";
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return "<p>" + data.pan.panNo.substring(15, 19) + "</p>";
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return "<p>" + data.pan.ExDate + "</p>";
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return "<p>" + data.pan.Cvv2 + "</p>";
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return "<p>" + data.pan.Track1 + "</p>";
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        return "<p>" + data.pan.Track2 + "</p>";
-                    }
-                },
-                {
-                    data: "productCode"
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        if (data.cartDesc == "null") return "";
-                        else return "<p>" + data.cartDesc + "</p>";
-                    }
-                },
+            $(".load-content").hide();
+            window.location.href=`${postalInfo}&orderStatus=&nationalcode=&RRN=&dateStart=${$("#dateStart").val()}&dateEnd=${$("#dateEnd").val()}`;
 
-                {
-                    data: null,
-                    render: function(data) {
-                        var expireDate = data.pan.ExDate.replace(/\//g, "");
-                        return (
-                            '<p dir="ltr">' +
-                            data.pan.panNo.replace(/ /g, "") +
-                            "001" +
-                            data.productCode +
-                            "001" +
-                            data.orderID +
-                            "00000" +
-                            data.dateTime +
-                            expireDate +
-                            "</p>"
-                        );
-                    }
-                },
-                {
-                    data: null,
-                    render: function(data) {
-                        if (data.pan.pin) {
-                            return data.pan.pin;
-                        } else {
-                            return "2318";
-                        }
-                    }
-                }
-            ]
-        });
-        t.on("order.dt search.dt", function() {
-            t.column(0, { search: "applied", order: "applied" })
-                .nodes()
-                .each(function(cell, i) {
-                    cell.innerHTML = i + 1;
-                });
-        }).draw();
-    };
-    getDataTable();
+        }).catch(async (err) => {
+                $(".load-content").hide();
+                toastr.error('خطا در دریافت اطلاعات')
+            }
 
-    //------------------------ SEARCH ---------------------
-    $(document).on("click", ".invoice-button", function() {
-        var self = $(this);
+        );
 
-        var name = self.attr("data-name"),
-            family = self.attr("data-family"),
-            address1 = self.attr("data-state"),
-            address2 = self.attr("data-address"),
-            address3 = self.attr("data-address1"),
-            post = self.attr("data-post"),
-            productCode = self.attr("data-productCode"),
-            quantity = self.attr("data-quantity"),
-            total = self.attr("data-total");
-
-        $("#name").text(name);
-        $("#family").text(family);
-        $("#postCode").text(post);
-        $("#address").text(address1 + " " + address2 + " " + address3);
-        $("#quantity").text(quantity);
-        $("#productCode").text(productCode);
-        $("#total").text(total);
-
-        $("#factorModal").modal({
-            backdrop: false
-        });
-        return false;
     });
 
     //----------------- REMOVE LOADING -------------------
@@ -324,23 +91,5 @@ $(document).ready(function() {
             .find("#loading-main")
             .remove();
     }, 0);
-
-    //------------------ FORMAT NUMBER -------------------
-    $("input.formatNumber").keyup(function(event) {
-        // skip for arrow keys
-        if (event.which >= 37 && event.which <= 40) return;
-
-        // format number
-        $(this).val(function(index, value) {
-            return value.replace(/\D/g, "");
-        });
-    });
-
-    //------------------- RESET INPUT -----------------
-    $("input").keyup(function() {
-        $(this).css({
-            "border-color": "#ccc",
-            "box-shadow": "inset 0 1px 1px rgba(0,0,0,.075)"
-        });
-    });
+//    --------
 });

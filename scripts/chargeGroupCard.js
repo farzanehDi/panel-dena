@@ -82,7 +82,7 @@ $(document).ready(function() {
             await response.json().then(async (data) => {
 
                 if(data.status==0){
-                    window.location.href=data;
+                    window.location=data;
                 }else {
                     toastr.error(data.msg);
                 }
@@ -115,8 +115,8 @@ function onDropChargeGroupCardExcel(input,successContainer,name,uploadContaner){
             return false;
         }
     }else{
-        if($.inArray(ext, ['xlsx','xls']) == -1) {
-            toastr.error("شما مجاز به انتخاب فایل اکسل می باشید");
+        if($.inArray(ext, ['xls']) == -1) {
+            toastr.error("شما مجاز به انتخاب فایل اکسل با پسوند xls می باشید");
             $(`#${input}`).val('');
             return false;
         }

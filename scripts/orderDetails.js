@@ -152,9 +152,11 @@ function order(){
 
             }
 
-            if(data[0].state=='pay'){
-                $('.sectionStatus').removeClass('d-none');
-            }
+            // if(data[0].state=='pay'){
+            //     $('.sectionStatus').removeClass('d-none');
+            // }else {
+            //     $('.sectionStatus').removeClass('d-none');
+            // }
             $('#createdAt').text(data[0].created_at);
             $('#buyer').text(data[0].fname+" "+data[0].lname);
             $('#orderStatus').text(orderStatus);
@@ -208,13 +210,13 @@ function cartsItem(){
 
                                  <div class="col-lg-3 col-6 text-right">
                                      <p class=" pb-1 border-bottom">جمع کل</p>
-                                     <p class="d-flex align-items-center  h-75 ">${item.cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال</p>
+                                     <p class="d-flex align-items-center  h-75 ">${item.cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان</p>
                                  </div>
                              </div>
                              <p class="mt-4 col-12 text-right"><span class="text-danger">متن کارت</span>: ${item.desc}</p>
                              <p class="mt-2 col-12 text-right"><span class="text-danger">آدرس گیرنده</span>: ${item.province} ${item.city} ${item.address}</p>
                              <p class="mt-2 col-12 text-right"><span class="text-danger">روش ارسال</span>: ${item.shipping_type}</p>
-                             <p class="mt-2 col-12 text-right"><span class="text-danger">هزینه ارسال</span>: ${item.shipping_cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ریال</p>
+                             <p class="mt-2 col-12 text-right"><span class="text-danger">هزینه ارسال</span>: ${item.shipping_cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان</p>
 
 
                              <div class="col-12 mt-4 mb-1 text-right ">
@@ -279,17 +281,6 @@ function changeStatus(){
     const urlParams = new URLSearchParams(location.hash.split('?')[1]);
     const id = urlParams.get('id');
 
-    if($('#changeStatus').val()==''){
-        $('#changeStatus').addClass('borderRed');
-        return false;
-    }else {
-        $('#changeStatus').removeClass('borderRed');
-    }
-
-    $('#statusChangeBtn img').removeClass('d-none');
-
-    if($('#changeStatus').val()=='processing'){
-
         fetch(adminAction+id, {
             method: "GET",
             headers: {
@@ -298,25 +289,51 @@ function changeStatus(){
 
         }).then(async (response) =>{
             await response.json().then(async (data) => {
-
                 // console.log(data);
                 if(data==0){
-                    orderStatusFn()
+                    // orderStatusFn()
                 }else{
                     toastr.error(data.message);
                 }
-
             });
         }).catch(async (err) => {
                 $('#statusChangeBtn img').addClass('d-none');
-                toastr.error('متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش نمایید');
-                console.log("error to post processing")
+                // toastr.error('متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش نمایید');
+                console.log("error to post register pan number")
             }
-
         );
-    }else {
-        orderStatusFn();
-    }
+
+}
+
+function sendOrderSmsFn(){
+
+    const urlParams = new URLSearchParams(location.hash.split('?')[1]);
+    const id = urlParams.get('id');
+
+    fetch(`${sendOrderSms}?orderid=${id}&orderStatus=${$('#changeStatus').val()}`, {
+        method: "GET",
+        headers: {
+            Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
+        },
+
+    }).then(async (response) =>{
+        await response.json().then(async (data) => {
+
+            console.log(data);
+            // if(data==0){
+            //     orderStatusFn()
+            // }else{
+            //     toastr.error(data.message);
+            // }
+
+        });
+    }).catch(async (err) => {
+            $('#statusChangeBtn img').addClass('d-none');
+            // toastr.error('متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش نمایید');
+            console.log("error to send sms")
+        }
+    );
+
 }
 
 function updateOrderImage(cart) {
@@ -406,6 +423,15 @@ function updateOrderTxt(text) {
 }
 
 function orderStatusFn() {
+
+    if($('#changeStatus').val()==''){
+        $('#changeStatus').addClass('borderRed');
+        return false;
+    }else {
+        $('#changeStatus').removeClass('borderRed');
+    }
+
+    $('#statusChangeBtn img').removeClass('d-none');
     const urlParams = new URLSearchParams(location.hash.split('?')[1]);
     const id = urlParams.get('id');
     fetch(orderStatus + '?status=' + $('#changeStatus').val() + '&order_id=' + id, {
@@ -418,10 +444,13 @@ function orderStatusFn() {
     }).then(async (response) => {
         await response.json().then(async (data) => {
             $('#statusChangeBtn img').addClass('d-none');
-            // console.log(data);
 
             if (data.status == 100) {
                 toastr.success('عملیات با موفقیت انجام شد');
+                sendOrderSmsFn(); //--send sms for customer---
+                if($('#changeStatus').val()=='processing'){
+                    changeStatus(); //----service for register pan number
+                }
                 order();
             } else if (data.status == 103) {
                 toastr.error('سفارش یافت نشد');
@@ -433,7 +462,6 @@ function orderStatusFn() {
         });
     }).catch(async (err) => {
             $('#statusChangeBtn img').addClass('d-none');
-            $(".load-content").hide();
             console.log("error to post order status")
         }
     );

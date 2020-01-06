@@ -48,7 +48,7 @@ function chargePage(){
 
         success: function (data) {
 
-            $('#chargeImg').attr('src','http://pushna.ir'+data);
+            $('#chargeImg').attr('src',data);
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -74,7 +74,7 @@ function guidPage(){
 
         success: function (data) {
 
-            $('#guidImg').attr('src','http://pushna.ir'+data);
+            $('#guidImg').attr('src',data);
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -100,7 +100,7 @@ function termPage(){
 
         success: function (data) {
 
-            $('#termImg').attr('src','http://pushna.ir'+data);
+            $('#termImg').attr('src',data);
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -127,7 +127,7 @@ function agentPage(){
         success: function (data) {
             $(".load-content").hide();
             // console.log(data);
-            $('#agentImg').attr('src','http://pushna.ir'+data);
+            $('#agentImg').attr('src',data);
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -154,7 +154,7 @@ function aboutPage(){
         success: function (data) {
             $(".load-content").hide();
             // console.log(data);
-            $('#aboutImg').attr('src','http://pushna.ir'+data);
+            $('#aboutImg').attr('src',data);
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -427,9 +427,9 @@ function getMainPageSliders(){
 
         success: function (data) {
 
-            $('#mainPageSlider1').attr('src','http://pushna.ir'+data.slide1);
-            $('#mainPageSlider2').attr('src','http://pushna.ir'+data.slide2);
-            $('#mainPageSlider3').attr('src','http://pushna.ir'+data.slide3);
+            $('#mainPageSlider1').attr('src',data.slide1);
+            $('#mainPageSlider2').attr('src',data.slide2);
+            $('#mainPageSlider3').attr('src',data.slide3);
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -455,9 +455,10 @@ function getBuyPageSliders(){
         success: function (data) {
             $(".load-content").hide();
             console.log(data);
-            $('#buyPageSlider1').attr('src','http://pushna.ir'+data.slide1);
-            $('#buyPageSlider2').attr('src','http://pushna.ir'+data.slide2);
-            $('#buyPageSlider3').attr('src','http://pushna.ir'+data.slide3);
+            // $('#buyPageSlider1').attr('src','http://pushna.ir'+data.slide1);
+            $('#buyPageSlider1').attr('src',data.slide1);
+            $('#buyPageSlider2').attr('src',data.slide2);
+            $('#buyPageSlider3').attr('src',data.slide3);
 
         },
         error: function (jqXHR, textStatus, errorThrown) {

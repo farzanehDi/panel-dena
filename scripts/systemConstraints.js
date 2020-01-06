@@ -2,25 +2,27 @@ $(document).ready(function(e) {
     //------------------ SET LOCATION HASH -------------------
     window.location.hash = "systemConstraints";
     //-------------get number of error------------
-    // fetch('....', {
-    //     method: "GET",
-    //     headers:{
-    //         Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
-    //     }
-    // }).then(async (response) =>{
-    //
-    //     await response.json().then(async (data) => {
-    //
-    //         if(data.status==100){
-    //             $('#priceOfCardBody').val((parseInt(data.result.replace(/[^\d]+/gi, '')) || 0).toLocaleString('en-US'));
-    //         }
-    //
-    //     });
-    //
-    // }).catch(err => {
-    //
-    //     console.log('error to get cost of card')
-    // });
+    fetch(getNumberOfFailed, {
+        method: "GET",
+        headers:{
+            Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
+        }
+    }).then(async (response) =>{
+
+        await response.json().then(async (data) => {
+
+            // console.log(data);
+            if(data.status==0){
+                $('#numberOfErr').text(data.report[0]);
+                $('#numberOfFailed').val(data.report[1]);
+            }
+
+        });
+
+    }).catch(err => {
+
+        console.log('error to get count off error')
+    });
     //-------------get admin mobile------------
     fetch(getAdminMobile, {
         method: "GET",
@@ -53,49 +55,49 @@ $(document).ready(function(e) {
 });
 
 
-// function numberOfCard(){
-//
-//     $(".txt-error").remove();
-//     let errTexr = '<div class="txt-error">* این مورد الزامی است</div>';
-//     let errorNum=false;
-//
-//     let input=document.getElementById('numberOfCard');
-//     if(input.value.length===0){
-//         $(errTexr).insertAfter(input);
-//         input.classList.add('borderRed');
-//         errorNum=true;
-//     }else {input.classList.remove('borderRed');}
-//
-//
-//     if(errorNum){return false;}
-//
-//     $('.loadingNumber').removeClass('d-none');
-//
-//
-//     fetch(updateLimitation+'?limitation='+parseInt($('#numberOfCard').val().replace(/,/g, ""),10), {
-//         method: "POST",
-//         // body:jsonData,
-//         headers:{
-//             Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
-//         }
-//     }).then(async (response) =>{
-//
-//         await response.json().then(async (data) => {
-//
-//             $('.loadingNumber').addClass('d-none');
-//             if(data.status==100){
-//                 toastr.success('اطلاعات با موفقیت ارسال شد');
-//             }else if(data.status==101){
-//                 toastr.error(data.validateError[0]);
-//             }
-//         });
-//
-//     }).catch(err => {
-//         $('.loadingNumber').addClass('d-none');
-//         toastr.error("متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش کنید");
-//         console.log('error to fetch categories')
-//     });
-// }
+function numberOfFailed(){
+
+    $(".txt-error").remove();
+    let errTexr = '<div class="txt-error">* این مورد الزامی است</div>';
+    let errorNum=false;
+
+    let input=document.getElementById('numberOfFailed');
+    if(input.value.length===0){
+        $(errTexr).insertAfter(input);
+        input.classList.add('borderRed');
+        errorNum=true;
+    }else {input.classList.remove('borderRed');}
+
+
+    if(errorNum){return false;}
+
+    $('.loadingNumber').removeClass('d-none');
+
+
+    fetch(postNumberOfFailed+$('#numberOfFailed').val(), {
+        method: "PUT",
+        headers:{
+            Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
+        }
+    }).then(async (response) =>{
+
+        await response.json().then(async (data) => {
+
+            $('.loadingNumber').addClass('d-none');
+            // console.log(data);
+            if(data.status==0){
+                toastr.success('اطلاعات با موفقیت ارسال شد');
+            }else if(data.status==101){
+                toastr.error(data.msg);
+            }
+        });
+
+    }).catch(err => {
+        $('.loadingNumber').addClass('d-none');
+        toastr.error("متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش کنید");
+        console.log('error to post number of failed')
+    });
+}
 
 function updateAdminMobile(){
 

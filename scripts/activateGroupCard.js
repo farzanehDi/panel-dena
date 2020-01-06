@@ -87,7 +87,7 @@ $(document).ready(function() {
 
                 console.log(data);
                 if(data.status==0){
-                    window.location.href=data;
+                    window.location=data;
                 }else {
                     toastr.error(data.msg);
                 }
@@ -111,8 +111,8 @@ $(document).ready(function() {
 
 function onDropActiveGroupCardExcel(){
     let ext = $('#uploadActiveCard').val().split('.').pop().toLowerCase();
-    if($.inArray(ext, ['xlsx','xls']) == -1) {
-        toastr.error("شما مجاز به انتخاب فایل اکسل می باشید");
+    if($.inArray(ext, ['xls']) == -1) {
+        toastr.error("شما مجاز به انتخاب فایل اکسل با پسوند xls می باشید");
         $('#uploadActiveCard').val('');
         return false;
     }

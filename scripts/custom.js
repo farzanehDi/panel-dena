@@ -224,7 +224,9 @@ function locationHashChanged() {
     if (location.hash.split('?')[0] == "#siteBanner") {
         $(".ajax_container").load("siteBanner.html");
     }
-
+    if (location.hash.split('?')[0] == "#specialPic") {
+        $(".ajax_container").load("specialPic.html");
+    }
 
   $("ul.list-sidebar li a").each(function() {
     if (h == "") {

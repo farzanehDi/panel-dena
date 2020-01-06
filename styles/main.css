@@ -18,7 +18,7 @@ kbd,
 q,
 s,
 samp,
-small,
+
 strike,
 strong,
 sub,
@@ -1123,7 +1123,15 @@ input.form-control,select.form-control{
   border-radius: 5px;border: solid #dfdfdf 1px
 }
 .bannerPage .img-fluid{
-  width: 150px;height: 80px
+  width: 150px;height: 80px;
+}
+.specialPic .img-fluid{
+  width: 130px;height: 110px;
+  box-shadow:0 0 5px lightgrey;
+  border-radius: 5px;
+}
+.specialPic .btn{
+  width: 130px;
 }
 
 #sliders .btn-primary{
@@ -1136,6 +1144,6 @@ input.form-control,select.form-control{
 #sliders hr{
   border-top:1px solid rgba(41, 167, 70, 0.40);
 }
-/*#sliders .bannerPage{*/
-  /*border-color:rgb(41, 167, 70);*/
-/*}*/
+.bannerPage .input-group input{
+  text-align: left!important;
+}

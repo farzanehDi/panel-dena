@@ -83,8 +83,8 @@ $(document).ready(function(e) {
 function onDrop(){
 
     let ext = $('#uploadPan').val().split('.').pop().toLowerCase();
-    if($.inArray(ext, ['xlsx','xls']) == -1) {
-        toastr.error("شما مجاز به انتخاب فایل اکسل می باشید");
+    if($.inArray(ext, ['xls']) == -1) {
+        toastr.error("شما مجاز به انتخاب فایل اکسل با پسوند xls می باشید");
         $('#uploadPan').val('');
         return false;
     }

@@ -11,18 +11,18 @@
             <div class="panelBox-body d-flex align-items-center justify-content-between">
 
                 <div class="d-flex flex-column col-lg-8 col-12">
-
+                    <p class="mb-4 text-danger text-right">تعداد خطاهای رخ داده تا کنون: <span id="numberOfErr"></span> </p>
                     <div class="form-group mb-3">
                         <div class="col-lg-8 col-12 p-0">
                             <p class="mb-2 text-right">تعداد عدم برقراری ارتباط برای ارسال پیامک :</p>
                             <div class="d-flex align-items-start flex-wrap">
                             <span class="input-icon icon-right col-lg-7 col-sm-9 col-12 p-0">
-                                          <input type="number" id="numberOfCard" class="form-control noEmpty"
+                                          <input type="number" id="numberOfFailed" class="form-control noEmpty"
                                                  autocomplete="off" placeholder="مقدار مورد نظر را وارد نمایید...">
                                              <i class="fas fa-hashtag circular"></i>
                             </span>&nbsp;
                                 <button class="btn btn-info text-nowrap d-flex align-items-center"
-                                        onclick="numberOfCard()" style="height: 40px">
+                                        onclick="numberOfFailed()" style="height: 40px">
                                     <img src="./images/spinner.gif" class="img-fluid d-none loading loadingNumber"  alt="loading">
                                     &nbsp;ارسال اطلاعات </button>
                             </div>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <img src="./images/mobileWarning.jpg" style="width:250px" class="img-fluid d-none d-lg-block" alt="محدودیت ها"/>
+                    <img src="./images/mobileWarning.png" style="width:250px" class="img-fluid d-none d-lg-block" alt="محدودیت ها"/>
                 </div>
 
 

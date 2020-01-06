@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //------------------ SET LOCATION HASH -------------------
     window.location.hash = "matrixReport";
-    $(".load-content").hide();
+
     //------------------ GET COOKIE TOKEN -------------------
     function getCookie(token) {
         var name = token + "=";
@@ -25,39 +25,19 @@ $(document).ready(function() {
         observer: true,
         format: "YYYY-MM-DD"
     });
+
+    $("#orderTime_S , #orderTime_E").val('');
     //--------------------------SEARCH ORDER---------------------------
-    let jsonData={
-        'pCode':'',
-        'charge':'',
-        'active':'',
-        'orderTime_S':'',
-        'orderTime_E':'',
-        'mellicode':'',
-        'mobileNo':'',
-        'RRN':'',
-        'orderStatus':''
-    };
-    $("#search").click(function() {
+    getInfo();
+    $("#searchMatrixReport").click(function() {
 
         $(".load-content").show();
-
-        jsonData={
-            'pCode':$('#pCode').val(),
-            'charge':$('#charge').val(),
-            'active':$('#active').val(),
-            'orderTime_S':$('#orderTime_S').val(),
-            'orderTime_E':$('#orderTime_E').val(),
-            'mellicode':$('#mellicode').val(),
-            'mobileNo':$('#mobileNo').val(),
-            'RRN':$('#RRN').val(),
-            'orderStatus':$('#orderStatus').val()
-        };
-        getDataTable();
+        getInfo();
 
     });
 
-    var getDataTable = function() {
-        var t = $("#matrixReport").DataTable({
+    let getDataTable = function(data) {
+        $("#matrixReport").DataTable({
             language: {
                 url: "./plugin/Persian.json",
                 buttons: {
@@ -75,12 +55,10 @@ $(document).ready(function() {
                 }
             ],
             order: [[1, "asc"]],
-            // processing: true,
             filter: false,
             targets: 0,
             bDestroy:true,
             dom: "Bfrtip",
-            // scrollX: true,
 
             lengthMenu: [
                 [10, 25, 50, -1],
@@ -95,7 +73,7 @@ $(document).ready(function() {
                         '<i class="fa fa-download text-primary" aria-hidden="true"></i> دریافت فایل Csv',
 
                     exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                        columns: [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15]
                     }
                 },
                 {
@@ -104,46 +82,71 @@ $(document).ready(function() {
                     text:
                         '<i class="fa fa-download text-primary" aria-hidden="true"></i> دریافت فایل Excel',
                     exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                        columns: [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15]
                     }
                 }
             ],
 
-
-            ajax: {
-                url:matrixReport,
-                type:'PUT',
-                dataType: "json",
-                data: jsonData,
-                contentType: "application/json; charset=utf-8",
-                headers: {
-                    Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
-                },
-                dataSrc: function(res) {
-                    $(".load-content").hide();
-                    console.log(res);
-                    if(res.status==0){
-                        return res.data;
-                    }else{
-                        return [];
-                    }
-
-                },
-
-                error: function(err) {
-                    $(".load-content").hide();
-                    if (err.status == 401) {
-                        window.location.href = "login.html";
-                    }
-                    $(".load-content").hide();
-                    toastr.error("خطا در برقراری ارتباط با سرور");
-                }
-            },
-
+            data:data,
             columns: [
-                { data: null },
+
+                { data: "RRN" },
                 { data: "orderId" },
-                { data: "orderStatus" },
+                {
+                    data: null,
+                    render: function(data) {
+                        if(data.orderStatus=='pending'){
+                            return (
+                                '<span>در انتظار پرداخت</span>'
+                            );
+                        }else if(data.orderStatus=='cancel'){
+                            return (
+                                '<span>لغو شده</span>'
+                            );
+                        }else if(data.orderStatus=='processing'){
+                            return (
+                                '<span>تایید شده</span>'
+                            );
+                        }else if(data.orderStatus=='failed'){
+                            return (
+                                '<span>خطا در پرداخت</span>'
+                            );
+                        }else if(data.orderStatus=='cancel'){
+                            return (
+                                '<span>لغو توسط کاربر</span>'
+                            );
+                        }else if(data.orderStatus=='pay'){
+                            return (
+                                '<span>پرداخت شده</span>'
+                            );
+                        }else if(data.orderStatus=='reject'){
+                            return (
+                                '<span>رد شده</span>'
+                            );
+                        }else if(data.orderStatus=='waiting'){
+                            return (
+                                '<span>در انتظار چاپ</span>'
+                            );
+                        }else if(data.orderStatus=='sending'){
+                            return (
+                                '<span>در حال ارسال</span>'
+                            );
+                        }else if(data.orderStatus=='done'){
+                            return (
+                                '<span>تکمیل شده</span>'
+                            );
+                        }else if(data.orderStatus=='error'){
+                            return (
+                                '<span>خطا در ارتباط</span>'
+                            );
+                        }else {
+                            return (
+                                `<span>${data.orderStatus}</span>`
+                            );
+                        }
+
+                    }
+                },
 
                 {
                     data: null,
@@ -157,25 +160,69 @@ $(document).ready(function() {
                 { data: "province" },
                 { data: "city" },
                 { data: "chargeAmount" },
-                { data: "active" },
-                { data: "charge" },
+                {
+                    data: null,
+                    render: function(data) {
+                        if(data.active=='false'){
+                            return (
+                                '<span>غیر فعال</span>'
+                            );
+                        }else if(data.active=='true'){
+                            return (
+                                '<span>فعال</span>'
+                            );
+                        }else {
+                            return (
+                                `<span>${data.active}</span>`
+                            );
+                        }
+                    }
+                },
+                {
+                    data: null,
+                    render: function(data) {
+                        if(data.charge=='false'){
+                            return (
+                                '<span>شارژ نشده</span>'
+                            );
+                        }else if(data.charge=='true'){
+                            return (
+                                '<span>شارژ شده</span>'
+                            );
+                        }else {
+                            return (
+                                `<span>${data.charge}</span>`
+                            );
+                        }
+                    }
+                },
                 { data: "Pcode" },
-                { data: "PcodeType" },
-                { data: "RRN" },
+                {
+                    data: null,
+                    render: function(data) {
+                        if(data.PcodeType='default'){
+                            return (
+                                '<span>ساده</span>'
+                            );
+                        }else if(data.PcodeType=='custom'){
+                            return (
+                                '<span>طرح دلخواه</span>'
+                            );
+                        }else {
+                            return (
+                                `<span>${data.PcodeType}</span>`
+                            );
+                        }
+                    }
+                },
                 { data: "orderType" },
                 { data: "dateTime" },
 
             ]
         });
-        t.on("order.dt search.dt", function() {
-            t.column(0, { search: "applied", order: "applied" })
-                .nodes()
-                .each(function(cell, i) {
-                    cell.innerHTML = i + 1;
-                });
-        }).draw();
+
     };
-    getDataTable();
+
 
     //----------------- REMOVE LOADING -------------------
     setTimeout(function() {
@@ -183,6 +230,49 @@ $(document).ready(function() {
             .find("#loading-main")
             .remove();
     }, 0);
+//    -------
+    function getInfo(){
 
+        $.ajax({
+            url:matrixReport,
+            type: "PUT",
+            dataType: "json",
+            data:JSON.stringify({
+                pCode:$('#pCode').val(),
+                charge:$('#charge').val(),
+                active:$('#active').val(),
+                orderTime_S:$('#orderTime_S').val(),
+                orderTime_E:$('#orderTime_E').val(),
+                mellicode:$('#mellicode').val(),
+                mobileNo:$('#mobileNo').val(),
+                RRN:$('#RRN').val(),
+                orderStatus:$('#orderStatus').val()
+            }),
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                Authorization: "Bearer " + getCookie("AuthorizationToken") + ""
+            },
 
+            success: function(res) {
+                $(".load-content").hide();
+                if(res.status==0){
+                    getDataTable(res.data);
+                }else {
+                    getDataTable([]);
+                }
+
+            },
+            error: function(err) {
+                $(".load-content").hide();
+                if (err.status == 401) {
+                    window.location.href = "login.html";
+                }
+                $(".load-content").hide();
+                toastr.error("خطا در برقراری ارتباط با سرور");
+            }
+        });
+
+    }
 });
+
+

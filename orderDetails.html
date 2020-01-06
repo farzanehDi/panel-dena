@@ -99,22 +99,25 @@
                         <div class="section text-right p-3">
                             <p class="border-bottom pb-2 "><span class="text-danger">خریدار</span></span> : <span id="buyer"></span></p>
                             <p class="border-bottom pb-2 pt-2"><span class="text-danger"> وضعیت سفارش </span>: <span id="orderStatus"></span></p>
-                            <p class="border-bottom pb-2 pt-2"><span class="text-danger">مبلغ کل سفارش</span> : <span id="orderPrice"></span> ریال</p>
+                            <p class="border-bottom pb-2 pt-2"><span class="text-danger">مبلغ کل سفارش</span> : <span id="orderPrice"></span> تومان</p>
                             <p class="pt-2"><span class="text-danger">ایجاد شده در تاریخ</span> : <span id="createdAt"></span></p>
                         </div>
 
-                        <div class="section text-right p-3 mt-3 mb-2 d-none sectionStatus">
+                        <div class="section text-right p-3 mt-3 mb-2 sectionStatus">
                             <p>تغییر وضعیت سفارش :</p>
                             <div class="d-flex align-items-stretch justify-content-between flex-wrap mt-4 mb-0">
                                 <select class="form-control mb-lg-0 mb-1 col-lg-8 col-12 p-0" id="changeStatus" >
                                     <option value="">انتخاب کنید...</option>
                                     <option value="processing">تایید سفارش</option>
                                     <option value="reject">رد سفارش</option>
+                                    <option value="waiting">در حال چاپ</option>
+                                    <option value="toPost">تحویل به پست</option>
+                                    <option value="done">تکمیل شده</option>
 
                                 </select>
 
                                 <button class="pt-0 pb-0 pr-3 pl-3  btn btn-info d-flex align-items-center justify-content-center"
-                                        onclick="changeStatus()" id="statusChangeBtn">
+                                        onclick="orderStatusFn()" id="statusChangeBtn">
                                     <img src="./images/spinner.gif" class="img-fluid d-none" id="loading" alt="loading">
                                     &nbsp;
                                     <span>ارسال</span>
