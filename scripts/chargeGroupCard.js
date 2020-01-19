@@ -79,15 +79,7 @@ $(document).ready(function() {
             }
         }).then(async (response) =>{
             $(".load-content").hide();
-            await response.json().then(async (data) => {
-
-                if(data.status==0){
-                    window.location=data;
-                }else {
-                    toastr.error(data.msg);
-                }
-
-            });
+                   window.location.href=getExcel+'charge';
 
         }).catch(err => {
             $(".load-content").hide();

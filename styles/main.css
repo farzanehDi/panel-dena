@@ -1147,3 +1147,7 @@ input.form-control,select.form-control{
 .bannerPage .input-group input{
   text-align: left!important;
 }
+
+.designsImg{
+  width:80px;
+}

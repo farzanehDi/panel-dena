@@ -124,4 +124,12 @@ updateSpecialPicOfBuyPage=site_baseURL +"/api/updateSpecialPicOfBuyPage",
 updateSpecialUrlOfBuyPage=site_baseURL +"/api/updateSpecialUrlOfBuyPage",
 getNumberOfFailed=noora_baseURL +"/kadona/api/adminAction/106",
 postNumberOfFailed=noora_baseURL +"/kadona/api/adminAction/106?count=",
-sendOrderSms=noora_baseURL +"/kadona/api/adminAction/102";
+sendOrderSms=noora_baseURL +"/kadona/api/adminAction/102",
+createCoupon=site_baseURL +"/api/createCoupon",
+getCoupons=site_baseURL +"/api/getCoupons",
+listOfDesigns=site_baseURL +"/api/listOfDesigns?status=",
+designStatus=site_baseURL +"/api/designStatus",
+listOfDesigner=site_baseURL +"/api/listOfDesigner",
+sales=site_baseURL +"/api/sales",
+designPayment=site_baseURL +"/api/designPayment",
+updatePayment=site_baseURL +"/api/updatePayment";

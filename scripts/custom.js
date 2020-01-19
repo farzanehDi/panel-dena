@@ -227,6 +227,18 @@ function locationHashChanged() {
     if (location.hash.split('?')[0] == "#specialPic") {
         $(".ajax_container").load("specialPic.html");
     }
+    if (location.hash.split('?')[0] == "#discountCoupon") {
+        $(".ajax_container").load("discountCoupon.html");
+    }
+    if (location.hash.split('?')[0] == "#discountCoupon") {
+        $(".ajax_container").load("discountCoupon.html");
+    }
+    if (location.hash.split('?')[0] == "#designers") {
+        $(".ajax_container").load("designers.html");
+    }
+    if (location.hash.split('?')[0] == "#financialReportDesigners") {
+        $(".ajax_container").load("financialReportDesigners.html");
+    }
 
   $("ul.list-sidebar li a").each(function() {
     if (h == "") {

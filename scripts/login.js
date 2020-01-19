@@ -102,9 +102,9 @@ $(document).ready(function() {
     }else if(data.status==111){
       toastr.error('پسورد وارد شده نامعتبر است')
     }else if(data.status==103){
-      toastr.err('کاربر مورد نظر یافت نشد')
+      toastr.error('کاربر مورد نظر یافت نشد')
     }else if(data.status==102){
-      toastr.err('اجازه دسترسی مسدود شده است')
+      toastr.error('اجازه دسترسی مسدود شده است')
     }else {
       toastr.error("متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش نمایید");
     }

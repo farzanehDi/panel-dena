@@ -1,0 +1,285 @@
+<!----------------loader-------------->
+<div class="load-content">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+</div>
+<!----------------body---------------->
+<div class=" no_margin">
+    <div class="col-md-12">
+        <h1 class="page-title d-flex align-items-center"><i class="fas fa-pen-fancy"></i>طراحان</h1>
+        <div class="panelBox animated fadeIn">
+
+            <div class="pt-0 pb-0 panelBox-body">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" role="tab" href="#designs"><i class="fas fa-images">&nbsp;</i>طرح ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" role="tab" href="#designers1" id="designersBtn"><i class="fas fa-users">&nbsp;</i>طراحان</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div id="designs" class="mt-4 tab-pane fade in active show">
+
+                        <div class="d-flex flex-column ">
+                            <label class="col-12 control-label no-padding-right text-right mb-2">نمایش بر اساس  :</label>
+                            <div class="col-lg-3 col-sm-8 col-12">
+                                <select id="statusDesign" class="form-control">
+                                    <option value="">همه</option>
+                                    <option value="accept">طرح های تایید شده</option>
+                                    <option value="reject">طرح های تایید نشده</option>
+                                    <option value="waiting">طرح های در حال انتظار</option>
+
+                                </select>
+                            </div>
+                        </div>
+                            <div class="custom-datatable">
+                                <div class="table-responsive custom-table">
+                                    <table style="direction: rtl" class="table table-striped table-condensed table-hover table-bordered"
+                                           id="listOfDesigns" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>نام طرح</th>
+                                                <th style="min-width: 80px">تصویر</th>
+                                                <th>قیمت</th>
+                                                <th>تخفیف</th>
+                                                <th>کد</th>
+                                                <th>وضعیت</th>
+                                                <th>توضیحات</th>
+                                                <th>نام و نام خانوادگی</th>
+                                                <th>تغییر وضعیت</th>
+                                                <th>آمار فروش</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+
+                    </div>
+
+
+                    <div id="designers1" class="tab-pane fade">
+
+                        <div class="custom-datatable">
+                            <div class="table-responsive custom-table">
+                                <table style="direction: rtl" class="table table-striped table-condensed table-hover table-bordered"
+                                       id="listOfDesigners" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>نام و نام خانوادگی</th>
+                                            <th>کدملی</th>
+                                            <th>تلفن</th>
+                                            <th>جزییات بیشتر</th>
+                                            <th>وضعیت پرداختی</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!---------------modal change status------------------>
+<div class="modal fade modal-large modal-edit" id="saleReportModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><i class="fas fa-edit">&nbsp;</i>آمار فروش طرح</span>
+
+            </div>
+
+            <div class="modal-body" >
+
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="designStatusModal">تعداد فروش (عدد)</label>
+                        <input type="text" id="totalCountModal" class="form-control" value="" disabled/>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="designStatusModal">جمع کل (تومان) </label>
+                        <input type="text" id="totalModal" class="form-control" value="" disabled/>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer d-flex align-items-center justify-content-between">
+
+                <button name="exit-modal" type="button" class="btn btn-danger" data-dismiss="modal">بازگشت
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------modal change status------------------>
+<div class="modal fade modal-large modal-edit" id="changeStatusModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><i class="fas fa-edit">&nbsp;</i>ویرایش وضعیت طرح</span>
+
+            </div>
+
+            <div class="modal-body" >
+                <input type="hidden" class="form-control" id="catId">
+                <input type="hidden" id="designId" value=""/>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="designStatusModal">انتخاب وضعیت طرح</label>
+                            <span class="input-icon icon-right">
+                                <select id="designStatusModal" class="form-control">
+                                    <option value="accept"> تایید </option>
+                                    <option value="reject">عدم تایید</option>
+                                </select>
+                            </span>
+                        </div>
+
+                    </div>
+
+            </div>
+
+
+            <div class="modal-footer d-flex align-items-center justify-content-between">
+                <button id="changeStatusDesign" type="button" class="btn btn-info print-link">ویرایش
+                </button>
+
+                <button id="exit-modal1" name="exit-modal" type="button" class="btn btn-danger" data-dismiss="modal">بازگشت
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------modal financial report designers------------>
+
+<div class="modal fade modal-large modal-edit" id="financialReportModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><i class="fas fa-edit">&nbsp;</i>گزارش مالی طراح</span>
+
+            </div>
+
+            <div class="modal-body" >
+
+                <div class="custom-datatable">
+                    <div class="table-responsive custom-table">
+                        <table style="direction: rtl" class="table table-striped table-condensed table-hover table-bordered"
+                               id="paymentListReportTable" width="100%">
+                            <thead>
+                            <tr>
+                                <th>نام و نام خانوادگی</th>
+                                <th>مقدار</th>
+                                <th>وضعیت</th>
+                             </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal-footer d-flex align-items-center justify-content-between">
+
+                <button name="exit-modal" type="button" class="btn btn-danger" data-dismiss="modal">بازگشت
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------modal designers details------------------>
+<div class="modal fade modal-large modal-edit" id="designersDetailsModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><i class="fas fa-edit">&nbsp;</i>جزییات طراح</span>
+            </div>
+
+            <div class="modal-body d-flex flex-wrap" >
+                <input type="hidden" id="designerId" value=""/>
+
+                <div class="col-sm-6 u-mb-md">
+                    <label for="designerName">نام طراح</label>
+                    <input class="form-control" type="text" id="designerName"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="nationalCodeDesigner">کد ملی</label>
+                    <input class="form-control" type="text" id="nationalCodeDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="phoneDesigner">تلفن</label>
+                    <input class="form-control" type="text" id="phoneDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="emailDesigner">ایمیل</label>
+                    <input class="form-control" type="text" id="emailDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="genderDesigner">جنسیت</label>
+                    <input class="form-control" type="text" id="genderDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="birthdayDesigner">تاریخ تولد</label>
+                    <input class="form-control" type="text" id="birthdayDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="provinceDesigner">استان</label>
+                    <input class="form-control" type="text" id="provinceDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="cityDesigner">شهر</label>
+                    <input class="form-control" type="text" id="cityDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="companyCodeDesigner">کد کمپانی</label>
+                    <input class="form-control" type="text" id="companyCodeDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="companyTypeDesigner">نوع کمپانی</label>
+                    <input class="form-control" type="text" id="companyTypeDesigner"  disabled>
+                </div>
+                <div class="col-sm-6 u-mb-md">
+                    <label for="shebaDesigner">شماره شبا</label>
+                    <input class="form-control" type="text" id="shebaDesigner"  disabled>
+                </div>
+                <div class="col-sm-12 u-mb-md">
+                    <label for="addressDesigner">آدرس</label>
+                    <input class="form-control" type="text" id="addressDesigner"  disabled>
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer d-flex align-items-center justify-content-between">
+
+                <button name="exit-modal" type="button" class="btn btn-danger" data-dismiss="modal">بازگشت
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!----------------script---------------->
+<script src="scripts/designers.js" type="text/javascript"></script>

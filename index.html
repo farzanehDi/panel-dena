@@ -142,12 +142,22 @@
                     </li>
 
 
-                    <li class="owner admin">
-                        <a href="orders" class="title_menu">
+                    <li class="owner admin orders panel">
+                        <a data-toggle="collapse" data-target="#orders" class="collapsed active"
+                           data-parent="#openMenu">
                             <i class="fas fa-shopping-basket"></i>
-                            <span class="nav-label">مدیریت سفارش ها</span>
-                            <span class="badge badge-pill float-left" id="newOrdersNum">0</span>
-                        </a>
+                            <span class="nav-label">مدیریت سفارشات</span>
+                            <span class="fa fa-chevron-left float-left"></span> </a>
+                        <ul class="sub-menu collapse" id="orders">
+                            <li class="owner admin">
+                                <a href="orders" class="title_menu">
+                                    <span class="sub-menu-txt">سفارش ها</span>
+                                    <span class="badge badge-pill float-left" id="newOrdersNum">0</span>
+                                </a>
+                            </li>
+                            <li class="owner admin"><a href="discountCoupon" class="title_menu"><span class="sub-menu-txt">بن تخفیف</span></a>
+                            </li>
+                        </ul>
                     </li>
                     <!--<li class="owner admin orders panel">-->
                         <!--<a data-toggle="collapse" data-target="#orders" class="collapsed active"-->
@@ -223,21 +233,21 @@
                         </ul>
                     </li>
 
-                    <!--<li class="owner admin panel " >-->
-                        <!--<a data-toggle="collapse" data-target="#designers" class="collapsed active"-->
-                           <!--data-parent="#openMenu">-->
-                            <!--<i class="fas fa-pen-fancy"></i>-->
-                            <!--<span class="nav-label">مدیریت طراحان</span>-->
-                            <!--<span class="fa fa-chevron-left float-left"></span> </a>-->
-                        <!--<ul class="sub-menu collapse" id="designers">-->
-                            <!--<li class="owner admin">-->
-                                <!--<a href="" class="title_menu"><span class="sub-menu-txt">طراحان</span></a>-->
-                            <!--</li>-->
-                            <!--<li class="owner admin">-->
-                                <!--<a href="" class="title_menu"><span class="sub-menu-txt">گزارشات مالی</span></a>-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                    <!--</li>-->
+                    <li class="owner admin panel " >
+                        <a data-toggle="collapse" data-target="#designers" class="collapsed active"
+                           data-parent="#openMenu">
+                            <i class="fas fa-pen-fancy"></i>
+                            <span class="nav-label">مدیریت طراحان</span>
+                            <span class="fa fa-chevron-left float-left"></span> </a>
+                        <ul class="sub-menu collapse" id="designers">
+                            <li class="owner admin">
+                                <a href="designers" class="title_menu"><span class="sub-menu-txt">طراحان</span></a>
+                            </li>
+                            <li class="owner admin">
+                                <a href="financialReportDesigners" class="title_menu"><span class="sub-menu-txt">گزارشات مالی</span></a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li class="owner admin requests">
                         <a href="requests" class="title_menu">

@@ -83,16 +83,7 @@ $(document).ready(function() {
             }
         }).then(async (response) =>{
             $(".load-content").hide();
-            await response.json().then(async (data) => {
-
-                console.log(data);
-                if(data.status==0){
-                    window.location=data;
-                }else {
-                    toastr.error(data.msg);
-                }
-            });
-
+                window.location.href=getExcel+'active';
         }).catch(err => {
             $(".load-content").hide();
             toastr.error("متاسفانه مشکلی پیش آمده است لطفا بعدا تلاش کنید");
